@@ -1,0 +1,1 @@
+<LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent" xmlns:android="http://schemas.android.com/apk/res/android"><md55946350e7e7da602d46867269263b519.DialogsList android:id="@+id/dialogsList" android:layout_width="match_parent" android:layout_height="match_parent" /></LinearLayout>

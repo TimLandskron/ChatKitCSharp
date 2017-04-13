@@ -1,0 +1,218 @@
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\bin\Debug\ChatKitCSharp.dll
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\bin\Debug\ChatKitCSharp.pdb
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\bin\Debug\com.chatkitcsharp.apk
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\bin\Debug\com.chatkitcsharp-Signed.apk
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\bin\Debug\FlexboxLayoutXamarinBindingAndroid.dll
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\bin\Debug\Xamarin.Android.Support.Animated.Vector.Drawable.dll
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\bin\Debug\Xamarin.Android.Support.Compat.dll
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\bin\Debug\Xamarin.Android.Support.Core.UI.dll
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\bin\Debug\Xamarin.Android.Support.Core.Utils.dll
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\bin\Debug\Xamarin.Android.Support.Design.dll
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\bin\Debug\Xamarin.Android.Support.Fragment.dll
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\bin\Debug\Xamarin.Android.Support.Media.Compat.dll
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\bin\Debug\Xamarin.Android.Support.Transition.dll
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\bin\Debug\Xamarin.Android.Support.v7.AppCompat.dll
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\bin\Debug\Xamarin.Android.Support.v7.RecyclerView.dll
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\bin\Debug\Xamarin.Android.Support.Vector.Drawable.dll
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\XbdMerge\Xamarin.Android.Support.Compat.dll
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\XbdMerge\Xamarin.Android.Support.Core.UI.dll
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\XbdMerge\Xamarin.Android.Support.Core.Utils.dll
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\XbdMerge\Xamarin.Android.Support.Media.Compat.dll
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\XbdMerge\Xamarin.Android.Support.Fragment.dll
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\XbdMerge\Xamarin.Android.Support.Vector.Drawable.dll
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\XbdMerge\Xamarin.Android.Support.Animated.Vector.Drawable.dll
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\XbdMerge\Xamarin.Android.Support.v7.AppCompat.dll
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\XbdMerge\Xamarin.Android.Support.Transition.dll
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\XbdMerge\Xamarin.Android.Support.v7.RecyclerView.dll
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\XbdMerge\Xamarin.Android.Support.Design.dll
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\ChatKitCSharp.dll
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\ChatKitCSharp.pdb
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\android\bin\com.chatkitcsharp.apk
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\layout\main.xml
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\drawable\icon.png
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\values\attrs.xml
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\values\colors.xml
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\values\dimens.xml
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\values\fonts.xml
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\values\ids.xml
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\values\styles.xml
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\drawable\bubble_circle.xml
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\drawable\shape_incoming_message.xml
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\drawable\shape_outcoming_message.xml
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\drawable-hdpi\ic_add_attachment.png
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\drawable-hdpi\ic_send.png
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\drawable-hdpi\mask.png
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\drawable-hdpi\mask_active.png
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\drawable-mdpi\ic_add_attachment.png
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\drawable-mdpi\ic_send.png
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\drawable-mdpi\mask.png
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\drawable-mdpi\mask_active.png
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\drawable-xhdpi\ic_add_attachment.png
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\drawable-xhdpi\ic_send.png
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\drawable-xhdpi\mask.png
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\drawable-xhdpi\mask_active.png
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\drawable-xxhdpi\ic_add_attachment.png
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\drawable-xxhdpi\ic_send.png
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\drawable-xxhdpi\mask.png
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\drawable-xxhdpi\mask_active.png
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\drawable-xxxhdpi\ic_add_attachment.png
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\drawable-xxxhdpi\ic_send.png
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\drawable-xxxhdpi\mask.png
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\drawable-xxxhdpi\mask_active.png
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\layout\item_date_header.xml
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\layout\item_dialog.xml
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\layout\item_incoming_image_message.xml
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\layout\item_incoming_text_message.xml
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\layout\item_outcoming_image_message.xml
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\layout\item_outcoming_text_message.xml
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\layout\view_message_input.xml
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\values\strings.xml
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\values-v21\fonts.xml
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\R.cs.flag
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\uploadflags.txt
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\bin\Debug\ChatKitCSharp.dll.mdb
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\bin\Debug\Java.Interop.dll.mdb
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\bin\Debug\Microsoft.CSharp.dll.mdb
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\bin\Debug\Mono.Android.dll.mdb
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\bin\Debug\Mono.CSharp.dll.mdb
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\bin\Debug\mscorlib.dll.mdb
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\bin\Debug\System.ComponentModel.Composition.dll.mdb
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\bin\Debug\System.Core.dll.mdb
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\bin\Debug\System.dll.mdb
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\bin\Debug\System.Net.Http.dll.mdb
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\bin\Debug\System.Runtime.Serialization.dll.mdb
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\bin\Debug\System.ServiceModel.Internals.dll.mdb
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\bin\Debug\System.Xml.dll.mdb
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\bin\Debug\System.Xml.Linq.dll.mdb
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\android\assets\ChatKitCSharp.dll.mdb
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\android\assets\Java.Interop.dll.mdb
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\android\assets\Microsoft.CSharp.dll.mdb
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\android\assets\Mono.Android.dll.mdb
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\android\assets\Mono.CSharp.dll.mdb
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\android\assets\mscorlib.dll.mdb
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\android\assets\System.ComponentModel.Composition.dll.mdb
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\android\assets\System.Core.dll.mdb
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\android\assets\System.dll.mdb
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\android\assets\System.Net.Http.dll.mdb
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\android\assets\System.Runtime.Serialization.dll.mdb
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\android\assets\System.ServiceModel.Internals.dll.mdb
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\android\assets\System.Xml.dll.mdb
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\android\assets\System.Xml.Linq.dll.mdb
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\ChatKitCSharp.csprojResolveAssemblyReference.cache
+C:\Users\Tim Landskron\Documents\Visual Studio 2017\Projects\ChatKitCSharp\ChatKitCSharp\obj\Debug\ChatKitCSharp.dll.mdb
+C:\Users\Tim Landskron\Documents\GitHub\ChatKit\XamarinAndroidChatKit\ChatKitCSharp\ChatKitCSharp\obj\Debug\ChatKitCSharp.csprojResolveAssemblyReference.cache
+C:\Users\Tim Landskron\Documents\GitHub\ChatKit\XamarinAndroidChatKit\ChatKitCSharp\ChatKitCSharp\obj\Debug\XbdMerge\Xamarin.Android.Support.Compat.dll
+C:\Users\Tim Landskron\Documents\GitHub\ChatKit\XamarinAndroidChatKit\ChatKitCSharp\ChatKitCSharp\obj\Debug\XbdMerge\Xamarin.Android.Support.Core.UI.dll
+C:\Users\Tim Landskron\Documents\GitHub\ChatKit\XamarinAndroidChatKit\ChatKitCSharp\ChatKitCSharp\obj\Debug\XbdMerge\Xamarin.Android.Support.Core.Utils.dll
+C:\Users\Tim Landskron\Documents\GitHub\ChatKit\XamarinAndroidChatKit\ChatKitCSharp\ChatKitCSharp\obj\Debug\XbdMerge\Xamarin.Android.Support.Media.Compat.dll
+C:\Users\Tim Landskron\Documents\GitHub\ChatKit\XamarinAndroidChatKit\ChatKitCSharp\ChatKitCSharp\obj\Debug\XbdMerge\Xamarin.Android.Support.Fragment.dll
+C:\Users\Tim Landskron\Documents\GitHub\ChatKit\XamarinAndroidChatKit\ChatKitCSharp\ChatKitCSharp\obj\Debug\XbdMerge\Xamarin.Android.Support.Vector.Drawable.dll
+C:\Users\Tim Landskron\Documents\GitHub\ChatKit\XamarinAndroidChatKit\ChatKitCSharp\ChatKitCSharp\obj\Debug\XbdMerge\Xamarin.Android.Support.Animated.Vector.Drawable.dll
+C:\Users\Tim Landskron\Documents\GitHub\ChatKit\XamarinAndroidChatKit\ChatKitCSharp\ChatKitCSharp\obj\Debug\XbdMerge\Xamarin.Android.Support.v7.AppCompat.dll
+C:\Users\Tim Landskron\Documents\GitHub\ChatKit\XamarinAndroidChatKit\ChatKitCSharp\ChatKitCSharp\obj\Debug\XbdMerge\Xamarin.Android.Support.Transition.dll
+C:\Users\Tim Landskron\Documents\GitHub\ChatKit\XamarinAndroidChatKit\ChatKitCSharp\ChatKitCSharp\obj\Debug\XbdMerge\Xamarin.Android.Support.v7.RecyclerView.dll
+C:\Users\Tim Landskron\Documents\GitHub\ChatKit\XamarinAndroidChatKit\ChatKitCSharp\ChatKitCSharp\obj\Debug\XbdMerge\Xamarin.Android.Support.Design.dll
+C:\Source\ChatKitCSharp\ChatKitCSharp\bin\Debug\ChatKitCSharp.dll
+C:\Source\ChatKitCSharp\ChatKitCSharp\bin\Debug\ChatKitCSharp.pdb
+C:\Source\ChatKitCSharp\ChatKitCSharp\bin\Debug\com.chatkitcsharp.apk
+C:\Source\ChatKitCSharp\ChatKitCSharp\bin\Debug\com.chatkitcsharp-Signed.apk
+C:\Source\ChatKitCSharp\ChatKitCSharp\bin\Debug\FlexboxLayoutXamarinBindingAndroid.dll
+C:\Source\ChatKitCSharp\ChatKitCSharp\bin\Debug\Xamarin.Android.Support.Animated.Vector.Drawable.dll
+C:\Source\ChatKitCSharp\ChatKitCSharp\bin\Debug\Xamarin.Android.Support.Compat.dll
+C:\Source\ChatKitCSharp\ChatKitCSharp\bin\Debug\Xamarin.Android.Support.Core.UI.dll
+C:\Source\ChatKitCSharp\ChatKitCSharp\bin\Debug\Xamarin.Android.Support.Core.Utils.dll
+C:\Source\ChatKitCSharp\ChatKitCSharp\bin\Debug\Xamarin.Android.Support.Design.dll
+C:\Source\ChatKitCSharp\ChatKitCSharp\bin\Debug\Xamarin.Android.Support.Fragment.dll
+C:\Source\ChatKitCSharp\ChatKitCSharp\bin\Debug\Xamarin.Android.Support.Media.Compat.dll
+C:\Source\ChatKitCSharp\ChatKitCSharp\bin\Debug\Xamarin.Android.Support.Transition.dll
+C:\Source\ChatKitCSharp\ChatKitCSharp\bin\Debug\Xamarin.Android.Support.v7.AppCompat.dll
+C:\Source\ChatKitCSharp\ChatKitCSharp\bin\Debug\Xamarin.Android.Support.v7.RecyclerView.dll
+C:\Source\ChatKitCSharp\ChatKitCSharp\bin\Debug\Xamarin.Android.Support.Vector.Drawable.dll
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\XbdMerge\Xamarin.Android.Support.Compat.dll
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\XbdMerge\Xamarin.Android.Support.Core.UI.dll
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\XbdMerge\Xamarin.Android.Support.Core.Utils.dll
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\XbdMerge\Xamarin.Android.Support.Media.Compat.dll
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\XbdMerge\Xamarin.Android.Support.Fragment.dll
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\XbdMerge\Xamarin.Android.Support.Vector.Drawable.dll
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\XbdMerge\Xamarin.Android.Support.Animated.Vector.Drawable.dll
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\XbdMerge\Xamarin.Android.Support.v7.AppCompat.dll
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\XbdMerge\Xamarin.Android.Support.Transition.dll
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\XbdMerge\Xamarin.Android.Support.v7.RecyclerView.dll
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\XbdMerge\Xamarin.Android.Support.Design.dll
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\ChatKitCSharp.dll
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\ChatKitCSharp.pdb
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\android\bin\com.chatkitcsharp.apk
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\layout\chat.xml
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\layout\main.xml
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\drawable\icon.png
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\values\attrs.xml
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\values\colors.xml
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\values\dimens.xml
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\values\fonts.xml
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\values\ids.xml
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\values\styles.xml
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\drawable\bubble_circle.xml
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\drawable\shape_incoming_message.xml
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\drawable\shape_outcoming_message.xml
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\drawable-hdpi\ic_add_attachment.png
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\drawable-hdpi\ic_send.png
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\drawable-hdpi\mask.png
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\drawable-hdpi\mask_active.png
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\drawable-mdpi\ic_add_attachment.png
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\drawable-mdpi\ic_send.png
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\drawable-mdpi\mask.png
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\drawable-mdpi\mask_active.png
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\drawable-xhdpi\ic_add_attachment.png
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\drawable-xhdpi\ic_send.png
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\drawable-xhdpi\mask.png
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\drawable-xhdpi\mask_active.png
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\drawable-xxhdpi\ic_add_attachment.png
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\drawable-xxhdpi\ic_send.png
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\drawable-xxhdpi\mask.png
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\drawable-xxhdpi\mask_active.png
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\drawable-xxxhdpi\ic_add_attachment.png
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\drawable-xxxhdpi\ic_send.png
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\drawable-xxxhdpi\mask.png
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\drawable-xxxhdpi\mask_active.png
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\layout\item_date_header.xml
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\layout\item_dialog.xml
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\layout\item_incoming_image_message.xml
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\layout\item_incoming_text_message.xml
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\layout\item_outcoming_image_message.xml
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\layout\item_outcoming_text_message.xml
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\layout\view_message_input.xml
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\values\strings.xml
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\res\values-v21\fonts.xml
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\R.cs.flag
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\uploadflags.txt
+C:\Source\ChatKitCSharp\ChatKitCSharp\bin\Debug\ChatKitCSharp.dll.mdb
+C:\Source\ChatKitCSharp\ChatKitCSharp\bin\Debug\Java.Interop.dll.mdb
+C:\Source\ChatKitCSharp\ChatKitCSharp\bin\Debug\Microsoft.CSharp.dll.mdb
+C:\Source\ChatKitCSharp\ChatKitCSharp\bin\Debug\Mono.Android.dll.mdb
+C:\Source\ChatKitCSharp\ChatKitCSharp\bin\Debug\Mono.CSharp.dll.mdb
+C:\Source\ChatKitCSharp\ChatKitCSharp\bin\Debug\mscorlib.dll.mdb
+C:\Source\ChatKitCSharp\ChatKitCSharp\bin\Debug\System.ComponentModel.Composition.dll.mdb
+C:\Source\ChatKitCSharp\ChatKitCSharp\bin\Debug\System.Core.dll.mdb
+C:\Source\ChatKitCSharp\ChatKitCSharp\bin\Debug\System.dll.mdb
+C:\Source\ChatKitCSharp\ChatKitCSharp\bin\Debug\System.Net.Http.dll.mdb
+C:\Source\ChatKitCSharp\ChatKitCSharp\bin\Debug\System.Runtime.Serialization.dll.mdb
+C:\Source\ChatKitCSharp\ChatKitCSharp\bin\Debug\System.ServiceModel.Internals.dll.mdb
+C:\Source\ChatKitCSharp\ChatKitCSharp\bin\Debug\System.Xml.dll.mdb
+C:\Source\ChatKitCSharp\ChatKitCSharp\bin\Debug\System.Xml.Linq.dll.mdb
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\android\assets\ChatKitCSharp.dll.mdb
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\android\assets\Java.Interop.dll.mdb
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\android\assets\Microsoft.CSharp.dll.mdb
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\android\assets\Mono.Android.dll.mdb
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\android\assets\Mono.CSharp.dll.mdb
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\android\assets\mscorlib.dll.mdb
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\android\assets\System.ComponentModel.Composition.dll.mdb
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\android\assets\System.Core.dll.mdb
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\android\assets\System.dll.mdb
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\android\assets\System.Net.Http.dll.mdb
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\android\assets\System.Runtime.Serialization.dll.mdb
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\android\assets\System.ServiceModel.Internals.dll.mdb
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\android\assets\System.Xml.dll.mdb
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\android\assets\System.Xml.Linq.dll.mdb
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\ChatKitCSharp.csprojResolveAssemblyReference.cache
+C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\ChatKitCSharp.dll.mdb
+C:\Source\ChatKitCSharp\ChatKitCSharp\bin\Debug\ChatKitCSharp.dll.mdb
