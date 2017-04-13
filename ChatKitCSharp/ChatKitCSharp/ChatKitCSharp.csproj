@@ -101,6 +101,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ChatActivity.cs" />
+    <Compile Include="Commons\MessageData.cs" />
+    <Compile Include="Commons\DialogData.cs" />
+    <Compile Include="Commons\DialogViewHolder.cs" />
     <Compile Include="Commons\ImageLoader.cs" />
     <Compile Include="Commons\Models\IDialog.cs" />
     <Compile Include="Commons\Models\IImage.cs" />

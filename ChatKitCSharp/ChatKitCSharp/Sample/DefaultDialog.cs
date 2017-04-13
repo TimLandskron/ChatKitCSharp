@@ -9,11 +9,12 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using ChatKitCSharp.Commons;
 using ChatKitCSharp.Commons.Models;
 
 namespace ChatKitCSharp.Sample
 {
-    public class DefaultDialog : IDialog<IMessage>
+    public class DefaultDialog : IDialog
     {
         public string Id { get; set; }
 
@@ -23,8 +24,7 @@ namespace ChatKitCSharp.Sample
 
         public List<IUser> Users { get; set; }
 
-        public IMessage LastMessage { get; set; }
-
         public int UnreadCount { get; set; }
+        public MessageData LastMessage { get; set; }
     }
 }

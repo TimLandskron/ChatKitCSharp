@@ -13,9 +13,9 @@ using Android.Support.V7.Widget;
 
 namespace ChatKitCSharp.Commons
 {
-    public abstract class ViewHolder<DATA> : RecyclerView.ViewHolder
+    public abstract class ViewHolder : RecyclerView.ViewHolder
     {
-        public abstract void OnBind(DATA data);
+        public abstract void OnBind(MessageData data);
         public ViewHolder(View itemView) : base(itemView) { }
     }
 }

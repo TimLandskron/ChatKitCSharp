@@ -2,7 +2,7 @@ package md5e9c3c3b02f348353dad5025c16092499;
 
 
 public class MessageHolders_DefaultOutcomingTextMessageViewHolder
-	extends md5e9c3c3b02f348353dad5025c16092499.MessageHolders_OutcomingTextMessageViewHolder_1
+	extends md5e9c3c3b02f348353dad5025c16092499.MessageHolders_OutcomingTextMessageViewHolder
 	implements
 		mono.android.IGCUserPeer
 {

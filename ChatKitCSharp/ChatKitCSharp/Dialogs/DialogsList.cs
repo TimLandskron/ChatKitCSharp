@@ -47,7 +47,7 @@ namespace ChatKitCSharp.Dialogs
             base.SetAdapter(adapter);
         }
 
-        public void SetAdapter<DIALOG>(DialogsListAdapter<DIALOG> adapter) where DIALOG : IDialog<IMessage>
+        public void SetAdapter(DialogsListAdapter adapter)
         {
             SimpleItemAnimator itemAnimator = new DefaultItemAnimator();
             itemAnimator.SupportsChangeAnimations = false;

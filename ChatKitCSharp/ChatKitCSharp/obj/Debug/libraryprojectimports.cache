@@ -2,21 +2,21 @@
 <Paths>
   <Jars></Jars>
   <ResolvedResourceDirectories>
-    <ResolvedResourceDirectory>C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\__library_projects__\FlexboxLayoutXamarinBindingAndroid\library_project_imports\res</ResolvedResourceDirectory>
-    <ResolvedResourceDirectory>C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\__library_projects__\Xamarin.Android.Support.v7.AppCompat\library_project_imports\res</ResolvedResourceDirectory>
-    <ResolvedResourceDirectory>C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\__library_projects__\Xamarin.Android.Support.Transition\library_project_imports\res</ResolvedResourceDirectory>
-    <ResolvedResourceDirectory>C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\__library_projects__\Xamarin.Android.Support.v7.RecyclerView\library_project_imports\res</ResolvedResourceDirectory>
-    <ResolvedResourceDirectory>C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\__library_projects__\Xamarin.Android.Support.Design\library_project_imports\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>C:\Source\GitHub\ChatKitCSharp\ChatKitCSharp\ChatKitCSharp\obj\Debug\__library_projects__\FlexboxLayoutXamarinBindingAndroid\library_project_imports\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>C:\Source\GitHub\ChatKitCSharp\ChatKitCSharp\ChatKitCSharp\obj\Debug\__library_projects__\Xamarin.Android.Support.v7.AppCompat\library_project_imports\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>C:\Source\GitHub\ChatKitCSharp\ChatKitCSharp\ChatKitCSharp\obj\Debug\__library_projects__\Xamarin.Android.Support.Transition\library_project_imports\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>C:\Source\GitHub\ChatKitCSharp\ChatKitCSharp\ChatKitCSharp\obj\Debug\__library_projects__\Xamarin.Android.Support.v7.RecyclerView\library_project_imports\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>C:\Source\GitHub\ChatKitCSharp\ChatKitCSharp\ChatKitCSharp\obj\Debug\__library_projects__\Xamarin.Android.Support.Design\library_project_imports\res</ResolvedResourceDirectory>
   </ResolvedResourceDirectories>
   <ResolvedAssetDirectories>
     <ResolvedAssetDirectory>obj\Debug\__library_projects__\FlexboxLayoutXamarinBindingAndroid\library_project_imports\assets</ResolvedAssetDirectory>
   </ResolvedAssetDirectories>
   <ResolvedEnvironmentFiles />
   <ResolvedResourceDirectoryStamps>
-    <ResolvedResourceDirectoryStamp>C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\__library_projects__\FlexboxLayoutXamarinBindingAndroid.stamp</ResolvedResourceDirectoryStamp>
-    <ResolvedResourceDirectoryStamp>C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\__library_projects__\Xamarin.Android.Support.v7.AppCompat.stamp</ResolvedResourceDirectoryStamp>
-    <ResolvedResourceDirectoryStamp>C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\__library_projects__\Xamarin.Android.Support.Transition.stamp</ResolvedResourceDirectoryStamp>
-    <ResolvedResourceDirectoryStamp>C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\__library_projects__\Xamarin.Android.Support.v7.RecyclerView.stamp</ResolvedResourceDirectoryStamp>
-    <ResolvedResourceDirectoryStamp>C:\Source\ChatKitCSharp\ChatKitCSharp\obj\Debug\__library_projects__\Xamarin.Android.Support.Design.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>C:\Source\GitHub\ChatKitCSharp\ChatKitCSharp\ChatKitCSharp\obj\Debug\__library_projects__\FlexboxLayoutXamarinBindingAndroid.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>C:\Source\GitHub\ChatKitCSharp\ChatKitCSharp\ChatKitCSharp\obj\Debug\__library_projects__\Xamarin.Android.Support.v7.AppCompat.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>C:\Source\GitHub\ChatKitCSharp\ChatKitCSharp\ChatKitCSharp\obj\Debug\__library_projects__\Xamarin.Android.Support.Transition.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>C:\Source\GitHub\ChatKitCSharp\ChatKitCSharp\ChatKitCSharp\obj\Debug\__library_projects__\Xamarin.Android.Support.v7.RecyclerView.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>C:\Source\GitHub\ChatKitCSharp\ChatKitCSharp\ChatKitCSharp\obj\Debug\__library_projects__\Xamarin.Android.Support.Design.stamp</ResolvedResourceDirectoryStamp>
   </ResolvedResourceDirectoryStamps>
 </Paths>

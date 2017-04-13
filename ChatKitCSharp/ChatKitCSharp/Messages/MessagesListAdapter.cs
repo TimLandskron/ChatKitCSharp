@@ -18,11 +18,11 @@ using Android.Graphics;
 
 namespace ChatKitCSharp.Messages
 {
-    public class MessagesListAdapter<MESSAGE> : RecyclerView.Adapter, RecyclerScrollMoreListener.OnLoadMoreListener where MESSAGE : IMessage
+    public class MessagesListAdapter : RecyclerView.Adapter, RecyclerScrollMoreListener.OnLoadMoreListener
     {
         private MessageHolders holders;
         private string senderId;
-        private List<Wrapper<MESSAGE>> items;
+        private List<Wrapper> items;
 
         private int selectedItemsCount;
         private SelectionListener selectionListener;
@@ -30,8 +30,8 @@ namespace ChatKitCSharp.Messages
         internal static bool isSelectionModeEnabled;
 
         private OnLoadMoreListener loadMoreListener;
-        private OnMessageClickListener<MESSAGE> onMessageClickListener;
-        private OnMessageLongClickListener<MESSAGE> onMessageLongClickListener;
+        private OnMessageClickListener onMessageClickListener;
+        private OnMessageLongClickListener onMessageLongClickListener;
         private ImageLoader imageLoader;
         private RecyclerView.LayoutManager layoutManager;
         private MessagesListStyle messagesListStyle;
@@ -57,33 +57,37 @@ namespace ChatKitCSharp.Messages
             this.senderId = senderId;
             this.holders = holders;
             this.imageLoader = imageLoader;
-            this.items = new List<Wrapper<MESSAGE>>();
+            this.items = new List<Wrapper>();
         }
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {
-            return holders.getHolder<MESSAGE>(parent, viewType, messagesListStyle);
+            //return holders.getHolder<MESSAGE>(parent, viewType, messagesListStyle);
+            var tmp = onCreateViewHolder(parent, viewType);
+            return tmp;
         }
 
-        public ViewHolder<MESSAGE> onCreateViewHolder(ViewGroup parent, int viewType)
+        public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
         {
-            return holders.getHolder<MESSAGE>(parent, viewType, messagesListStyle);
+            var tmp = holders.getHolder(parent, viewType, messagesListStyle);
+            return tmp;
         }
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
         {
-            Wrapper<MESSAGE> wrapper = items[position];
-            var tmp = holder as ViewHolder<MESSAGE>;
-            holders.bind(tmp, wrapper.item, wrapper.isSelected, imageLoader, getMessageClickListener(wrapper), getMessageLongClickListener(wrapper), dateHeadersFormatter);
+            //Wrapper<MESSAGE> wrapper = items[position];
+            var tmp = holder as ViewHolder;
+            OnBindViewHolder(tmp, position);
+            //holders.bind(tmp, wrapper.item, wrapper.isSelected, imageLoader, getMessageClickListener(wrapper), getMessageLongClickListener(wrapper), dateHeadersFormatter);
         }
 
         //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
         //ORIGINAL LINE: @SuppressWarnings("unchecked") @Override public void onBindViewHolder(com.stfalcon.chatkit.commons.ViewHolder holder, int position)
-        public void OnBindViewHolder(ViewHolder<MESSAGE> holder, int position)
+        public void OnBindViewHolder(ViewHolder holder, int position)
         {
-            Wrapper<MESSAGE> wrapper = items[position];
+            Wrapper wrapper = items[position];
             holders.bind(holder, wrapper.item, wrapper.isSelected, imageLoader, getMessageClickListener(wrapper), getMessageLongClickListener(wrapper), dateHeadersFormatter);
-        }        
+        }
 
         public override int ItemCount
         {
@@ -116,14 +120,14 @@ namespace ChatKitCSharp.Messages
         /// </summary>
         /// <param name="message"> message to add. </param>
         /// <param name="scroll">  {@code true} if need to scroll list to bottom when message added. </param>
-        public virtual void addToStart(MESSAGE message, bool scroll)
+        public virtual void addToStart(MessageData message, bool scroll)
         {
             bool isNewMessageToday = !isPreviousSameDate(0, message.CreatedAt);
             if (isNewMessageToday)
             {
-                items.Insert(0, new Wrapper<MESSAGE>(this, message));
+                items.Insert(0, new Wrapper(this, message));
             }
-            Wrapper<MESSAGE> element = new Wrapper<MESSAGE>(this, message);
+            Wrapper element = new Wrapper(this, message);
             items.Insert(0, element);
             NotifyItemRangeInserted(0, isNewMessageToday ? 2 : 1);
             if (layoutManager != null && scroll)
@@ -137,7 +141,7 @@ namespace ChatKitCSharp.Messages
         /// </summary>
         /// <param name="messages"> messages from history. </param>
         /// <param name="reverse">  {@code true} if need to reverse messages before adding. </param>
-        public virtual void addToEnd(IList<MESSAGE> messages, bool reverse)
+        public virtual void addToEnd(IList<MessageData> messages, bool reverse)
         {
             if (reverse)
             {
@@ -164,7 +168,7 @@ namespace ChatKitCSharp.Messages
         /// Updates message by its id.
         /// </summary>
         /// <param name="message"> updated message object. </param>
-        public virtual void update(MESSAGE message)
+        public virtual void update(MessageData message)
         {
             update(message.Id, message);
         }
@@ -174,12 +178,12 @@ namespace ChatKitCSharp.Messages
         /// </summary>
         /// <param name="oldId">      an identifier of message to update. </param>
         /// <param name="newMessage"> new message object. </param>
-        public virtual void update(string oldId, MESSAGE newMessage)
+        public virtual void update(string oldId, MessageData newMessage)
         {
             int position = getMessagePositionById(oldId);
             if (position >= 0)
             {
-                Wrapper<MESSAGE> element = new Wrapper<MESSAGE>(this, newMessage);
+                Wrapper element = new Wrapper(this, newMessage);
                 items[position] = element;
                 NotifyItemChanged(position);
             }
@@ -189,7 +193,7 @@ namespace ChatKitCSharp.Messages
         /// Deletes message.
         /// </summary>
         /// <param name="message"> message to delete. </param>
-        public virtual void delete(MESSAGE message)
+        public virtual void delete(MessageData message)
         {
             deleteById(message.Id);
         }
@@ -198,9 +202,9 @@ namespace ChatKitCSharp.Messages
         /// Deletes messages list.
         /// </summary>
         /// <param name="messages"> messages list to delete. </param>
-        public virtual void delete(IList<MESSAGE> messages)
+        public virtual void delete(IList<MessageData> messages)
         {
-            foreach (MESSAGE message in messages)
+            foreach (MessageData message in messages)
             {
                 int index = getMessagePositionById(message.Id);
                 items.RemoveAt(index);
@@ -290,16 +294,16 @@ namespace ChatKitCSharp.Messages
         /// <returns> list of selected messages. Empty list if nothing was selected or selection mode is disabled. </returns>
         //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
         //ORIGINAL LINE: @SuppressWarnings("unchecked") public java.util.ArrayList<MESSAGE> getSelectedMessages()
-        public virtual List<MESSAGE> SelectedMessages
+        public virtual List<MessageData> SelectedMessages
         {
             get
             {
-                List<MESSAGE> selectedMessages = new List<MESSAGE>();
-                foreach (Wrapper<MESSAGE> wrapper in items)
+                List<MessageData> selectedMessages = new List<MessageData>();
+                foreach (Wrapper wrapper in items)
                 {
                     if (wrapper.item is IMessage && wrapper.isSelected)
                     {
-                        selectedMessages.Add((MESSAGE)wrapper.item);
+                        selectedMessages.Add((MessageData)wrapper.item);
                     }
                 }
                 return selectedMessages;
@@ -312,7 +316,7 @@ namespace ChatKitCSharp.Messages
         /// <param name="formatter"> The formatter that allows you to format your message model when copying. </param>
         /// <param name="reverse">   Change ordering when copying messages. </param>
         /// <returns> formatted text by <seealso cref="Formatter"/>. If it's {@code null} - {@code MESSAGE#toString()} will be used. </returns>
-        public virtual string getSelectedMessagesText(Formatter<MESSAGE> formatter, bool reverse)
+        public virtual string getSelectedMessagesText(Formatter formatter, bool reverse)
         {
             string copiedText = getSelectedText(formatter, reverse);
             unselectAllItems();
@@ -326,7 +330,7 @@ namespace ChatKitCSharp.Messages
         /// <param name="formatter"> The formatter that allows you to format your message model when copying. </param>
         /// <param name="reverse">   Change ordering when copying messages. </param>
         /// <returns> formatted text by <seealso cref="Formatter"/>. If it's {@code null} - {@code MESSAGE#toString()} will be used. </returns>
-        public virtual string copySelectedMessagesText(Context context, Formatter<MESSAGE> formatter, bool reverse)
+        public virtual string copySelectedMessagesText(Context context, Formatter formatter, bool reverse)
         {
             string copiedText = getSelectedText(formatter, reverse);
             copyToClipboard(context, copiedText);
@@ -341,7 +345,7 @@ namespace ChatKitCSharp.Messages
         {
             for (int i = 0; i < items.Count; i++)
             {
-                Wrapper<MESSAGE> wrapper = items[i];
+                Wrapper wrapper = items[i];
                 if (wrapper.isSelected)
                 {
                     wrapper.isSelected = false;
@@ -359,7 +363,7 @@ namespace ChatKitCSharp.Messages
         /// </summary>
         public virtual void deleteSelectedMessages()
         {
-            IList<MESSAGE> selectedMessages = SelectedMessages;
+            IList<MessageData> selectedMessages = SelectedMessages;
             delete(selectedMessages);
             unselectAllItems();
         }
@@ -368,7 +372,7 @@ namespace ChatKitCSharp.Messages
         /// Sets click listener for item. Fires ONLY if list is not in selection mode.
         /// </summary>
         /// <param name="onMessageClickListener"> click listener. </param>
-        public virtual void setOnMessageClickListener(OnMessageClickListener<MESSAGE> onMessageClickListener)
+        public virtual void setOnMessageClickListener(OnMessageClickListener onMessageClickListener)
         {
             this.onMessageClickListener = onMessageClickListener;
         }
@@ -377,7 +381,7 @@ namespace ChatKitCSharp.Messages
         /// Sets long click listener for item. Fires only if selection mode is disabled.
         /// </summary>
         /// <param name="onMessageLongClickListener"> long click listener. </param>
-        public virtual void setOnMessageLongClickListener(OnMessageLongClickListener<MESSAGE> onMessageLongClickListener)
+        public virtual void setOnMessageLongClickListener(OnMessageLongClickListener onMessageLongClickListener)
         {
             this.onMessageLongClickListener = onMessageLongClickListener;
         }
@@ -414,8 +418,8 @@ namespace ChatKitCSharp.Messages
 
             for (int i = 0; i < items.Count; i++)
             {
-                Wrapper<MESSAGE> wrapper = items[i];
-                if (wrapper.item is DateTime)
+                Wrapper wrapper = items[i];
+                if (wrapper.item.Type == MessageData.DataType.Date)
                 {
                     if (i == 0)
                     {
@@ -423,7 +427,7 @@ namespace ChatKitCSharp.Messages
                     }
                     else
                     {
-                        if (items[i - 1].item is DateTime)
+                        if (items[i - 1].item.Type == MessageData.DataType.Date)
                         {
                             indicesToDelete.Add(i);
                         }
@@ -439,23 +443,23 @@ namespace ChatKitCSharp.Messages
             }
         }
 
-        private void generateDateHeaders(IList<MESSAGE> messages)
+        private void generateDateHeaders(IList<MessageData> messages)
         {
             for (int i = 0; i < messages.Count; i++)
             {
-                MESSAGE message = messages[i];
-                this.items.Add(new Wrapper<MESSAGE>(this, message));
+                MessageData message = messages[i];
+                this.items.Add(new Wrapper(this, message));
                 if (messages.Count > i + 1)
                 {
-                    MESSAGE nextMessage = messages[i + 1];
+                    MessageData nextMessage = messages[i + 1];
                     if (!DateFormatter.IsSameDay(message.CreatedAt, nextMessage.CreatedAt))
                     {
-                        this.items.Add(new Wrapper<MESSAGE>(this, message));
+                        this.items.Add(new Wrapper(this, message));
                     }
                 }
                 else
                 {
-                    this.items.Add(new Wrapper<MESSAGE>(this, message));
+                    this.items.Add(new Wrapper(this, message));
                 }
             }
         }
@@ -466,10 +470,10 @@ namespace ChatKitCSharp.Messages
         {
             for (int i = 0; i < items.Count; i++)
             {
-                Wrapper<MESSAGE> wrapper = items[i];
+                Wrapper wrapper = items[i];
                 if (wrapper.item is IMessage)
                 {
-                    MESSAGE message = (MESSAGE)wrapper.item;
+                    MessageData message = (MessageData)wrapper.item;
                     if (message.Id.Equals(id))
                     {
                         return i;
@@ -489,7 +493,7 @@ namespace ChatKitCSharp.Messages
             }
             if (items[position].item is IMessage)
             {
-                Date previousPositionDate = ((MESSAGE)items[position].item).CreatedAt;
+                Date previousPositionDate = ((MessageData)items[position].item).CreatedAt;
                 return DateFormatter.IsSameDay(dateToCompare, previousPositionDate);
             }
             else
@@ -510,7 +514,7 @@ namespace ChatKitCSharp.Messages
 
             if (items[prevPosition].item is IMessage)
             {
-                return ((MESSAGE)items[prevPosition].item).User.Id.Equals(id);
+                return ((MessageData)items[prevPosition].item).User.Id.Equals(id);
             }
             else
             {
@@ -540,7 +544,7 @@ namespace ChatKitCSharp.Messages
             }
         }
 
-        private void notifyMessageClicked(MESSAGE message)
+        private void notifyMessageClicked(MessageData message)
         {
             if (onMessageClickListener != null)
             {
@@ -548,7 +552,7 @@ namespace ChatKitCSharp.Messages
             }
         }
 
-        private void notifyMessageLongClicked(MESSAGE message)
+        private void notifyMessageLongClicked(MessageData message)
         {
             if (onMessageLongClickListener != null)
             {
@@ -558,18 +562,18 @@ namespace ChatKitCSharp.Messages
 
         //JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
         //ORIGINAL LINE: private android.view.View.OnClickListener getMessageClickListener(final Wrapper<MESSAGE> wrapper)
-        private View.IOnClickListener getMessageClickListener(Wrapper<MESSAGE> wrapper)
+        private MyOnClickListener getMessageClickListener(Wrapper wrapper)
         {
-            return new OnClickListenerAnonymousInnerClass(this, wrapper);
+            return new MyOnClickListener(this, wrapper);
         }
 
-        private class OnClickListenerAnonymousInnerClass : View.IOnClickListener
+        public class MyOnClickListener : View.IOnClickListener
         {
-            private readonly MessagesListAdapter<MESSAGE> outerInstance;
+            private readonly MessagesListAdapter outerInstance;
 
-            private Wrapper<MESSAGE> wrapper;
+            private Wrapper wrapper;
 
-            public OnClickListenerAnonymousInnerClass(MessagesListAdapter<MESSAGE> outerInstance, Wrapper<MESSAGE> wrapper)
+            public MyOnClickListener(MessagesListAdapter outerInstance, Wrapper wrapper)
             {
                 this.outerInstance = outerInstance;
                 this.wrapper = wrapper;
@@ -596,7 +600,7 @@ namespace ChatKitCSharp.Messages
                         outerInstance.decrementSelectedItemsCount();
                     }
 
-                    MESSAGE message = (wrapper.item);
+                    MessageData message = (wrapper.item);
                     outerInstance.NotifyItemChanged(outerInstance.getMessagePositionById(message.Id));
                 }
                 else
@@ -608,18 +612,18 @@ namespace ChatKitCSharp.Messages
 
         //JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
         //ORIGINAL LINE: private android.view.View.OnLongClickListener getMessageLongClickListener(final Wrapper<MESSAGE> wrapper)
-        private View.IOnLongClickListener getMessageLongClickListener(Wrapper<MESSAGE> wrapper)
+        private MyOnLongClickListener getMessageLongClickListener(Wrapper wrapper)
         {
-            return new OnLongClickListenerAnonymousInnerClass(this, wrapper);
+            return new MyOnLongClickListener(this, wrapper);
         }
 
-        private class OnLongClickListenerAnonymousInnerClass : View.IOnLongClickListener
+        public class MyOnLongClickListener : View.IOnLongClickListener
         {
-            private readonly MessagesListAdapter<MESSAGE> outerInstance;
+            private readonly MessagesListAdapter outerInstance;
 
-            private Wrapper<MESSAGE> wrapper;
+            private Wrapper wrapper;
 
-            public OnLongClickListenerAnonymousInnerClass(MessagesListAdapter<MESSAGE> outerInstance, Wrapper<MESSAGE> wrapper)
+            public MyOnLongClickListener(MessagesListAdapter outerInstance, Wrapper wrapper)
             {
                 this.outerInstance = outerInstance;
                 this.wrapper = wrapper;
@@ -647,17 +651,17 @@ namespace ChatKitCSharp.Messages
             }
         }
 
-        private string getSelectedText(Formatter<MESSAGE> formatter, bool reverse)
+        private string getSelectedText(Formatter formatter, bool reverse)
         {
             StringBuilder builder = new StringBuilder();
 
-            List<MESSAGE> selectedMessages = SelectedMessages;
+            List<MessageData> selectedMessages = SelectedMessages;
             if (reverse)
             {
                 selectedMessages.Reverse();
             }
 
-            foreach (MESSAGE message in selectedMessages)
+            foreach (MessageData message in selectedMessages)
             {
                 builder.Append(formatter == null ? message.ToString() : formatter.format(message));
                 builder.Append("\n\n");
@@ -693,14 +697,14 @@ namespace ChatKitCSharp.Messages
         /*
 		* WRAPPER
 		* */
-        private class Wrapper<DATA>
+        public class Wrapper
         {
-            private readonly MessagesListAdapter<MESSAGE> outerInstance;
+            private readonly MessagesListAdapter outerInstance;
 
-            internal DATA item;
+            internal MessageData item;
             internal bool isSelected;
 
-            internal Wrapper(MessagesListAdapter<MESSAGE> outerInstance, DATA item)
+            internal Wrapper(MessagesListAdapter outerInstance, MessageData item)
             {
                 this.outerInstance = outerInstance;
                 this.item = item;
@@ -741,33 +745,33 @@ namespace ChatKitCSharp.Messages
         /// <summary>
         /// Interface definition for a callback to be invoked when message item is clicked.
         /// </summary>
-        public interface OnMessageClickListener<MESSAGE> where MESSAGE : IMessage
+        public interface OnMessageClickListener
         {
 
             /// <summary>
             /// Fires when message was clicked.
             /// </summary>
             /// <param name="message"> clicked message. </param>
-            void onMessageClick(MESSAGE message);
+            void onMessageClick(MessageData message);
         }
 
         /// <summary>
         /// Interface definition for a callback to be invoked when message item is long clicked.
         /// </summary>
-        public interface OnMessageLongClickListener<MESSAGE> where MESSAGE : IMessage
+        public interface OnMessageLongClickListener
         {
 
             /// <summary>
             /// Fires when message was long clicked.
             /// </summary>
             /// <param name="message"> clicked message. </param>
-            void onMessageLongClick(MESSAGE message);
+            void onMessageLongClick(MessageData message);
         }
 
         /// <summary>
         /// Interface used to format your message model when copying.
         /// </summary>
-        public interface Formatter<MESSAGE>
+        public interface Formatter
         {
 
             /// <summary>
@@ -775,7 +779,7 @@ namespace ChatKitCSharp.Messages
             /// </summary>
             /// <param name="message"> The object that should be formatted. </param>
             /// <returns> Formatted text. </returns>
-            string format(MESSAGE message);
+            string format(MessageData message);
         }       
     }
 }

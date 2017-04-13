@@ -12,13 +12,13 @@ using Android.Widget;
 
 namespace ChatKitCSharp.Commons.Models
 {
-    public interface IDialog<MESSAGE> where MESSAGE : IMessage
+    public interface IDialog
     {
         string Id { get; }
         string DialogPhoto { get; }
         string DialogName { get; }
         List<IUser> Users { get; }
-        MESSAGE LastMessage { get; set; }
+        MessageData LastMessage { get; set; }
         int UnreadCount { get; }
     }
 }

@@ -38,7 +38,7 @@ namespace ChatKitCSharp.Messages
 
         public MessageHolders()
         {
-            this.dateHeaderHolder = typeof(DefaultDateHeaderViewHolder<Date>);
+            this.dateHeaderHolder = typeof(DefaultDateHeaderViewHolder);
             this.dateHeaderLayout = Resource.Layout.item_date_header;
 
             this.incomingTextConfig = new HolderConfig(this, typeof(DefaultIncomingTextMessageViewHolder), Resource.Layout.item_incoming_text_message);
@@ -321,20 +321,22 @@ namespace ChatKitCSharp.Messages
 		* PRIVATE METHODS
 		* */
 
-        internal virtual ViewHolder<TYPE> getHolder<TYPE>(ViewGroup parent, int viewType, MessagesListStyle messagesListStyle)
+        internal virtual ViewHolder getHolder(ViewGroup parent, int viewType, MessagesListStyle messagesListStyle)
         {
             switch (viewType)
             {
                 case VIEW_TYPE_DATE_HEADER:
-                    return getDateHolder(parent, dateHeaderLayout, dateHeaderHolder, messagesListStyle) as ViewHolder<TYPE>;
+                return getDateHolder(parent, dateHeaderLayout, dateHeaderHolder, messagesListStyle);
                 case VIEW_TYPE_TEXT_MESSAGE:
-                    return getHolder(parent, incomingTextConfig, messagesListStyle) as ViewHolder<TYPE>;
+                    var tmp = getHolder(parent, incomingTextConfig, messagesListStyle);
+                    //var tmp2 = tmp as ViewHolder<T>;
+                    return tmp;
                 case -VIEW_TYPE_TEXT_MESSAGE:
-                    return getHolder(parent, outcomingTextConfig, messagesListStyle) as ViewHolder<TYPE>;
+                    return getHolder(parent, outcomingTextConfig, messagesListStyle);
                 case VIEW_TYPE_IMAGE_MESSAGE:
-                    return getHolder(parent, incomingImageConfig, messagesListStyle) as ViewHolder<TYPE>;
+                // return getHolder<MESSAGE>(parent, incomingImageConfig, messagesListStyle) as ViewHolder<T>;
                 case -VIEW_TYPE_IMAGE_MESSAGE:
-                    return getHolder(parent, outcomingImageConfig, messagesListStyle) as ViewHolder<TYPE>;
+                // return getHolder<MESSAGE>(parent, outcomingImageConfig, messagesListStyle) as ViewHolder<T>;
                 default:
                     foreach (ContentTypeConfig typeConfig in customContentTypes)
                     {
@@ -342,11 +344,11 @@ namespace ChatKitCSharp.Messages
                         {
                             if (viewType > 0)
                             {
-                                return getHolder(parent, typeConfig.incomingConfig, messagesListStyle) as ViewHolder<TYPE>;
+                                return getHolder(parent, typeConfig.incomingConfig, messagesListStyle);
                             }
                             else
                             {
-                                return getHolder(parent, typeConfig.outcomingConfig, messagesListStyle) as ViewHolder<TYPE>;
+                                return getHolder(parent, typeConfig.outcomingConfig, messagesListStyle);
                             }
                         }
                     }
@@ -357,20 +359,28 @@ namespace ChatKitCSharp.Messages
 
         //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
         //ORIGINAL LINE: @SuppressWarnings("unchecked") void bind(com.stfalcon.chatkit.commons.ViewHolder holder, Object item, boolean isSelected, com.stfalcon.chatkit.commons.ImageLoader imageLoader, android.view.View.OnClickListener onMessageClickListener, android.view.View.OnLongClickListener onMessageLongClickListener, com.stfalcon.chatkit.utils.DateFormatter.Formatter dateHeadersFormatter)
-        internal virtual void bind<T>(ViewHolder<T> holder, object item, bool isSelected, ImageLoader imageLoader, View.IOnClickListener onMessageClickListener, View.IOnLongClickListener onMessageLongClickListener, DateFormatter.Formatter dateHeadersFormatter)
+        internal virtual void bind(ViewHolder holder, object item, bool isSelected, ImageLoader imageLoader, MessagesListAdapter.MyOnClickListener onMessageClickListener, MessagesListAdapter.MyOnLongClickListener onMessageLongClickListener, DateFormatter.Formatter dateHeadersFormatter)
         {
-            if (item is IMessage)
+            if (item is MessageData)
             {
-                (holder as BaseMessageViewHolder<IMessage>).isSelected = isSelected;
-                (holder as BaseMessageViewHolder<IMessage>).imageLoader = imageLoader;
-                holder.ItemView.SetOnLongClickListener(onMessageLongClickListener);
-                holder.ItemView.SetOnClickListener(onMessageClickListener);
+                var tmp = item as MessageData;
+                if (tmp.Type == MessageData.DataType.Message)
+                {
+
+                    var tmpHolder = holder as BaseMessageViewHolder;
+                    tmpHolder.isSelected = isSelected;
+                    tmpHolder.imageLoader = imageLoader;
+                    //tmpHolder.ItemView.SetOnLongClickListener(onMessageLongClickListener);
+                    // tmpHolder.ItemView.SetOnClickListener(onMessageClickListener);
+                    tmpHolder.OnBind(tmp);
+                }
+                else if (tmp.Type == MessageData.DataType.Date)
+                {
+                    var tmpHolder = holder as DefaultDateHeaderViewHolder;
+                    tmpHolder.dateHeadersFormatter = dateHeadersFormatter;
+                    tmpHolder.OnBind(tmp);
+                }
             }
-            else if (item is Date)
-            {
-                (holder as DefaultDateHeaderViewHolder<Date>).dateHeadersFormatter = dateHeadersFormatter;
-            }
-            holder.OnBind((T)item);
         }
 
 
@@ -379,34 +389,43 @@ namespace ChatKitCSharp.Messages
             bool isOutcoming = false;
             int viewType;
 
-            if (item is IMessage)
+            var tmp = item as MessageData;
+            switch (tmp.Type)
             {
-                IMessage message = (IMessage)item;
-                isOutcoming = message.Id.Equals(senderId);
-                viewType = getContentViewType(message);
-            }
-            else
-            {
-                viewType = VIEW_TYPE_DATE_HEADER;
+                case MessageData.DataType.Message:
+                    isOutcoming = tmp.Id.Equals(senderId);
+                    viewType = getContentViewType(tmp);
+                    break;
+                case MessageData.DataType.Date:
+                    viewType = VIEW_TYPE_DATE_HEADER;
+                    break;
+                case MessageData.DataType.Image:
+                    isOutcoming = tmp.Id.Equals(senderId);
+                    viewType = getContentViewType(tmp);
+                    break;
+                default:
+                    viewType = 0;
+                    break;
             }
 
             return isOutcoming ? viewType * -1 : viewType;
         }
 
-        private ViewHolder<IMessage> getHolder(ViewGroup parent, HolderConfig holderConfig, MessagesListStyle style)
+        private ViewHolder getHolder(ViewGroup parent, HolderConfig holderConfig, MessagesListStyle style)
         {
-            return getHolder<IMessage>(parent, holderConfig.layout, holderConfig.holder, style);
+            var tmp = getHolder(parent, holderConfig.layout, holderConfig.holder, style);
+            return tmp;
         }
 
-        private ViewHolder<Date> getDateHolder(ViewGroup parent, int layout, Type holderClass, MessagesListStyle style)
+        private ViewHolder getDateHolder(ViewGroup parent, int layout, Type holderClass, MessagesListStyle style)
         {
             View v = LayoutInflater.From(parent.Context).Inflate(layout, parent, false);
-            return new DefaultDateHeaderViewHolder<Date>(v);
+            return new DefaultDateHeaderViewHolder(v);
         }
 
         //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
         //ORIGINAL LINE: private <HOLDER extends com.stfalcon.chatkit.commons.ViewHolder> com.stfalcon.chatkit.commons.ViewHolder getHolder(android.view.ViewGroup parent, @LayoutRes int layout, Class<HOLDER> holderClass, MessagesListStyle style)
-        private ViewHolder<T> getHolder<T>(ViewGroup parent, int layout, Type holderClass, MessagesListStyle style)
+        private ViewHolder getHolder(ViewGroup parent, int layout, Type holderClass, MessagesListStyle style)
         {
 
             View v = LayoutInflater.From(parent.Context).Inflate(layout, parent, false);
@@ -414,19 +433,20 @@ namespace ChatKitCSharp.Messages
             {
                 if (holderClass == typeof(DefaultIncomingTextMessageViewHolder))
                 {
-                    return new IncomingTextMessageViewHolder<IMessage>(v) as ViewHolder<T>;
+                    var result = new IncomingTextMessageViewHolder(v);
+                    return result;
                 }
                 else if (holderClass == typeof(DefaultOutcomingTextMessageViewHolder))
                 {
-                    return new OutcomingTextMessageViewHolder<IMessage>(v) as ViewHolder<T>;
+                    return new OutcomingTextMessageViewHolder(v);
                 }
-                else if (holderClass == typeof(DefaultDateHeaderViewHolder<Date>))
+                else if (holderClass == typeof(DefaultDateHeaderViewHolder))
                 {
-                    return new DefaultDateHeaderViewHolder<Date>(v) as ViewHolder<T>;
+                    //return new DefaultDateHeaderViewHolder<Date>(v);
                 }
                 else if (holderClass == typeof(DefaultIncomingImageMessageViewHolder))
                 {
-                    return new IncomingImageMessageViewHolder<IMessageContentType>(v) as ViewHolder<T>;
+                    //return new IncomingImageMessageViewHolder<IMessageContentType>(v) as ViewHolder<T>;
                 }
                 return null;
                 //Constructor<HOLDER> constructor = holderClass.getDeclaredConstructor(typeof(View));
@@ -446,31 +466,31 @@ namespace ChatKitCSharp.Messages
 
         //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
         //ORIGINAL LINE: @SuppressWarnings("unchecked") private short getContentViewType(com.stfalcon.chatkit.commons.models.IMessage message)
-        private short getContentViewType(IMessage message)
+        private short getContentViewType(MessageData message)
         {
-            if (message is IMessageContentType && ((IMessageContentType)message).ImageUrl != null)
+            if (message.Type == MessageData.DataType.Image && !string.IsNullOrEmpty(message.ImageUrl))
             {
                 return VIEW_TYPE_IMAGE_MESSAGE;
             }
 
             // other default types will be here
 
-            if (message is IMessageContentType)
-            {
-                for (int i = 0; i < customContentTypes.Count; i++)
-                {
-                    ContentTypeConfig config = customContentTypes[i];
-                    if (contentChecker == null)
-                    {
-                        throw new System.ArgumentException("ContentChecker cannot be null when using custom content types!");
-                    }
-                    bool hasContent = contentChecker.hasContentFor(message, config.type);
-                    if (hasContent)
-                    {
-                        return config.type;
-                    }
-                }
-            }
+            //if (message is IMessageContentType)
+            //{
+            //    for (int i = 0; i < customContentTypes.Count; i++)
+            //    {
+            //        ContentTypeConfig config = customContentTypes[i];
+            //        if (contentChecker == null)
+            //        {
+            //            throw new System.ArgumentException("ContentChecker cannot be null when using custom content types!");
+            //        }
+            //        bool hasContent = contentChecker.hasContentFor(message, config.type);
+            //        if (hasContent)
+            //        {
+            //            return config.type;
+            //        }
+            //    }
+            //}
 
             return VIEW_TYPE_TEXT_MESSAGE;
         }
@@ -483,7 +503,7 @@ namespace ChatKitCSharp.Messages
         /// The base class for view holders for incoming and outcoming message.
         /// You can extend it to create your own holder in conjuction with custom layout or even using default layout.
         /// </summary>
-        public abstract class BaseMessageViewHolder<MESSAGE> : ViewHolder<MESSAGE> where MESSAGE : IMessage
+        public abstract class BaseMessageViewHolder : ViewHolder
         {
 
             internal bool isSelected;
@@ -517,7 +537,7 @@ namespace ChatKitCSharp.Messages
             {
                 get
                 {
-                    return MessagesListAdapter<MESSAGE>.isSelectionModeEnabled;
+                    return MessagesListAdapter.isSelectionModeEnabled;
                 }
             }
 
@@ -543,9 +563,9 @@ namespace ChatKitCSharp.Messages
 
             private class LinkMovementMethodAnonymousInnerClass : LinkMovementMethod
             {
-                private readonly BaseMessageViewHolder<MESSAGE> outerInstance;
+                private readonly BaseMessageViewHolder outerInstance;
 
-                public LinkMovementMethodAnonymousInnerClass(BaseMessageViewHolder<MESSAGE> outerInstance)
+                public LinkMovementMethodAnonymousInnerClass(BaseMessageViewHolder outerInstance)
                 {
                     this.outerInstance = outerInstance;
                 }
@@ -553,7 +573,7 @@ namespace ChatKitCSharp.Messages
                 public override bool OnTouchEvent(TextView widget, ISpannable buffer, MotionEvent e)
                 {
                     bool result = false;
-                    if (!MessagesListAdapter<MESSAGE>.isSelectionModeEnabled)
+                    if (!MessagesListAdapter.isSelectionModeEnabled)
                     {
                         result = base.OnTouchEvent(widget, buffer, e);
                     }
@@ -567,7 +587,7 @@ namespace ChatKitCSharp.Messages
         /// <summary>
         /// Default view holder implementation for incoming text message
         /// </summary>
-        public class IncomingTextMessageViewHolder<MESSAGE> : BaseIncomingMessageViewHolder<MESSAGE> where MESSAGE : IMessage
+        public class IncomingTextMessageViewHolder : BaseIncomingMessageViewHolder
         {
 
             protected internal ViewGroup bubble;
@@ -579,7 +599,7 @@ namespace ChatKitCSharp.Messages
                 text = (TextView)itemView.FindViewById(Resource.Id.messageText);
             }
 
-            public override void OnBind(MESSAGE message)
+            public override void OnBind(MessageData message)
             {
                 base.OnBind(message);
                 if (bubble != null)
@@ -617,7 +637,7 @@ namespace ChatKitCSharp.Messages
         /// <summary>
         /// Default view holder implementation for outcoming text message
         /// </summary>
-        public class OutcomingTextMessageViewHolder<MESSAGE> : BaseOutcomingMessageViewHolder<MESSAGE> where MESSAGE : IMessage
+        public class OutcomingTextMessageViewHolder : BaseOutcomingMessageViewHolder
         {
 
             protected internal ViewGroup bubble;
@@ -629,7 +649,7 @@ namespace ChatKitCSharp.Messages
                 text = (TextView)itemView.FindViewById(Resource.Id.messageText);
             }
 
-            public override void OnBind(MESSAGE message)
+            public override void OnBind(MessageData message)
             {
                 base.OnBind(message);
                 if (bubble != null)
@@ -667,7 +687,7 @@ namespace ChatKitCSharp.Messages
         /// <summary>
         /// Default view holder implementation for incoming image message
         /// </summary>
-        public class IncomingImageMessageViewHolder<MESSAGE> : BaseIncomingMessageViewHolder<MESSAGE> where MESSAGE : IMessageContentType
+        public class IncomingImageMessageViewHolder : BaseIncomingMessageViewHolder
         {
 
             protected internal ImageView image;
@@ -684,7 +704,7 @@ namespace ChatKitCSharp.Messages
                 }
             }
 
-            public override void OnBind(MESSAGE message)
+            public override void OnBind(MessageData message)
             {
                 base.OnBind(message);
                 if (image != null && imageLoader != null)
@@ -718,7 +738,7 @@ namespace ChatKitCSharp.Messages
         /// <summary>
         /// Default view holder implementation for outcoming image message
         /// </summary>
-        public class OutcomingImageMessageViewHolder<MESSAGE> : BaseOutcomingMessageViewHolder<MESSAGE> where MESSAGE : IMessageContentType
+        public class OutcomingImageMessageViewHolder : BaseOutcomingMessageViewHolder
         {
 
             protected internal ImageView image;
@@ -735,7 +755,7 @@ namespace ChatKitCSharp.Messages
                 }
             }
 
-            public override void OnBind(MESSAGE message)
+            public override void OnBind(MessageData message)
             {
                 base.OnBind(message);
                 if (image != null && imageLoader != null)
@@ -769,7 +789,7 @@ namespace ChatKitCSharp.Messages
         /// <summary>
         /// Default view holder implementation for date header
         /// </summary>
-        public class DefaultDateHeaderViewHolder<DATE> : ViewHolder<Date>, DefaultMessageViewHolder
+        public class DefaultDateHeaderViewHolder : ViewHolder, DefaultMessageViewHolder
         {
 
             protected internal TextView text;
@@ -781,16 +801,16 @@ namespace ChatKitCSharp.Messages
                 text = (TextView)itemView.FindViewById(Resource.Id.messageText);
             }
 
-            public override void OnBind(Date date)
+            public override void OnBind(MessageData date)
             {
                 if (text != null)
                 {
                     string formattedDate = null;
                     if (dateHeadersFormatter != null)
                     {
-                        formattedDate = dateHeadersFormatter.Format(date);
+                        formattedDate = dateHeadersFormatter.Format(date.CreatedAt);
                     }
-                    text.Text = string.ReferenceEquals(formattedDate, null) ? DateFormatter.Format(date, dateFormat) : formattedDate;
+                    text.Text = string.ReferenceEquals(formattedDate, null) ? DateFormatter.Format(date.CreatedAt, dateFormat) : formattedDate;
                 }
             }
 
@@ -811,7 +831,7 @@ namespace ChatKitCSharp.Messages
         /// <summary>
         /// Base view holder for incoming message
         /// </summary>
-        public abstract class BaseIncomingMessageViewHolder<MESSAGE> : BaseMessageViewHolder<MESSAGE>, DefaultMessageViewHolder where MESSAGE : IMessage
+        public abstract class BaseIncomingMessageViewHolder : BaseMessageViewHolder, DefaultMessageViewHolder
         {
 
             protected internal TextView time;
@@ -839,7 +859,7 @@ namespace ChatKitCSharp.Messages
                 }
             }
 
-            public override void OnBind(MESSAGE message)
+            public override void OnBind(MessageData message)
             {
                 if (time != null)
                 {
@@ -862,7 +882,7 @@ namespace ChatKitCSharp.Messages
         /// <summary>
         /// Base view holder for outcoming message
         /// </summary>
-        public abstract class BaseOutcomingMessageViewHolder<MESSAGE> : BaseMessageViewHolder<MESSAGE>, DefaultMessageViewHolder where MESSAGE : IMessage
+        public abstract class BaseOutcomingMessageViewHolder : BaseMessageViewHolder, DefaultMessageViewHolder
         {
 
             protected internal TextView time;
@@ -872,7 +892,7 @@ namespace ChatKitCSharp.Messages
                 time = (TextView)itemView.FindViewById(Resource.Id.messageTime);
             }
 
-            public override void OnBind(MESSAGE message)
+            public override void OnBind(MessageData message)
             {
                 if (time != null)
                 {
@@ -900,7 +920,7 @@ namespace ChatKitCSharp.Messages
             void applyStyle(MessagesListStyle style);
         }
 
-        private class DefaultIncomingTextMessageViewHolder : IncomingTextMessageViewHolder<IMessage>
+        private class DefaultIncomingTextMessageViewHolder : IncomingTextMessageViewHolder
         {
 
             public DefaultIncomingTextMessageViewHolder(View itemView) : base(itemView)
@@ -908,7 +928,7 @@ namespace ChatKitCSharp.Messages
             }
         }
 
-        private class DefaultOutcomingTextMessageViewHolder : OutcomingTextMessageViewHolder<IMessage>
+        private class DefaultOutcomingTextMessageViewHolder : OutcomingTextMessageViewHolder
         {
 
             public DefaultOutcomingTextMessageViewHolder(View itemView) : base(itemView)
@@ -916,7 +936,7 @@ namespace ChatKitCSharp.Messages
             }
         }
 
-        private class DefaultIncomingImageMessageViewHolder : IncomingImageMessageViewHolder<IMessageContentType>
+        private class DefaultIncomingImageMessageViewHolder : IncomingImageMessageViewHolder
         {
 
             public DefaultIncomingImageMessageViewHolder(View itemView) : base(itemView)
@@ -924,7 +944,7 @@ namespace ChatKitCSharp.Messages
             }
         }
 
-        private class DefaultOutcomingImageMessageViewHolder : OutcomingImageMessageViewHolder<IMessageContentType>
+        private class DefaultOutcomingImageMessageViewHolder : OutcomingImageMessageViewHolder
         {
 
             public DefaultOutcomingImageMessageViewHolder(View itemView) : base(itemView)

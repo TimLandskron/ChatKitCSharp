@@ -38,7 +38,7 @@ namespace ChatKitCSharp.Messages
             base.SetAdapter(adapter);
         }
 
-        public void SetAdapter<MESSAGE>(MessagesListAdapter<MESSAGE> adapter) where MESSAGE : IMessage
+        public void SetAdapter(MessagesListAdapter adapter)
         {
             SimpleItemAnimator itemAnimator = new DefaultItemAnimator();
             itemAnimator.SupportsChangeAnimations = false;

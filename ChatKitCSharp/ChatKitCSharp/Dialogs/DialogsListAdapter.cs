@@ -20,14 +20,14 @@ using Java.Util;
 
 namespace ChatKitCSharp.Dialogs
 {
-    public class DialogsListAdapter<DIALOG> : RecyclerView.Adapter where DIALOG : IDialog<IMessage>
+    public class DialogsListAdapter : RecyclerView.Adapter
     {
-        private List<DIALOG> items = new List<DIALOG>();
+        private List<IDialog> items = new List<IDialog>();
         private int itemLayoutId;
-        private DialogViewHolder<DIALOG> holderClass;
+        private CustomDialogViewHolder holderClass;
         public ImageLoader imageLoader { get; set; }
-        public OnDialogClickListener<DIALOG> onDialogClickListener { get; set; }
-        public OnDialogLongClickListener<DIALOG> onDialogLongClickListener { get; set; }
+        public OnDialogClickListener onDialogClickListener { get; set; }
+        public OnDialogLongClickListener onDialogLongClickListener { get; set; }
         public  DialogListStyle DialogStyle { get; set; }
         public DateFormatter.Formatter datesFormatter { get; set; }
 
@@ -43,14 +43,14 @@ namespace ChatKitCSharp.Dialogs
             this.imageLoader = imageLoader;
         }
 
-        public DialogsListAdapter(int itemLayoutId, DialogViewHolder<DIALOG> holderClass, ImageLoader imageLoader)
+        public DialogsListAdapter(int itemLayoutId, CustomDialogViewHolder holderClass, ImageLoader imageLoader)
         {
             this.itemLayoutId = itemLayoutId;
             this.holderClass = holderClass;
             this.imageLoader = imageLoader;
         }
 
-        public void SetAttributes(int itemLayoutId, DialogViewHolder<DIALOG> holderClass, ImageLoader imageLoader)
+        public void SetAttributes(int itemLayoutId, CustomDialogViewHolder holderClass, ImageLoader imageLoader)
         {
             this.itemLayoutId = itemLayoutId;
             this.holderClass = holderClass;
@@ -59,10 +59,10 @@ namespace ChatKitCSharp.Dialogs
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
         {
-            OnBindViewHolder(holder as BaseDialogViewHolder<DIALOG>, position);
+            OnBindViewHolder(holder as BaseDialogViewHolder, position);
         }
 
-        public void OnBindViewHolder(BaseDialogViewHolder<DIALOG> holder, int position)
+        public void OnBindViewHolder(BaseDialogViewHolder holder, int position)
         {
             holder.SetImageLoader(imageLoader);
             holder.SetOnDialogClickListener(onDialogClickListener);
@@ -76,10 +76,10 @@ namespace ChatKitCSharp.Dialogs
             return OnCreateViewHolder(parent, viewType, true);
         }
 
-        public BaseDialogViewHolder<DIALOG> OnCreateViewHolder(ViewGroup parent, int viewType, bool b)
+        public BaseDialogViewHolder OnCreateViewHolder(ViewGroup parent, int viewType, bool b)
         {
             View v = LayoutInflater.From(parent.Context).Inflate(itemLayoutId, parent, false);
-            var holder = new DialogViewHolder<DIALOG>(v);
+            var holder = new CustomDialogViewHolder(v);
             holder.DialogStyle = DialogStyle;
             return holder;
         }
@@ -104,19 +104,19 @@ namespace ChatKitCSharp.Dialogs
             NotifyDataSetChanged();
         }
 
-        public void SetItems(List<DIALOG> items)
+        public void SetItems(List<IDialog> items)
         {
             this.items = items;
             NotifyDataSetChanged();
         }
 
-        public void AddItems(List<DIALOG> newItems)
+        public void AddItems(List<DialogData> newItems)
         {
             if (newItems != null)
             {
                 if (items == null)
                 {
-                    items = new List<DIALOG>();
+                    items = new List<IDialog>();
                 }
                 int curSize = items.Count;
                 items.AddRange(newItems);
@@ -124,28 +124,28 @@ namespace ChatKitCSharp.Dialogs
             }
         }
 
-        public void AddItem(int position, DIALOG dialog)
+        public void AddItem(int position, DialogData dialog)
         {
             items.Insert(position, dialog);
             NotifyItemInserted(position);
         }
 
-        public void UpdateItem(int position, DIALOG item)
+        public void UpdateItem(int position, DialogData item)
         {
             if (items == null)
             {
-                items = new List<DIALOG>();
+                items = new List<IDialog>();
             }
             items.RemoveAt(position);
             items.Insert(position, item);
             NotifyItemChanged(position);
         }
 
-        public void UpdateItemById(DIALOG item)
+        public void UpdateItemById(DialogData item)
         {
             if (items == null)
             {
-                items = new List<DIALOG>();
+                items = new List<IDialog>();
             }
             var index = items.IndexOf(items.First(i => i.Id == item.Id));
             items.RemoveAt(index);
@@ -153,7 +153,7 @@ namespace ChatKitCSharp.Dialogs
             NotifyItemChanged(index);
         }
 
-        public bool UpdateDialogWithMessage(string dialogId, IMessage message)
+        public bool UpdateDialogWithMessage(string dialogId, MessageData message)
         {
             bool dialogExist = false;
             for (int i = 0; i < items.Count; i++)
@@ -184,11 +184,11 @@ namespace ChatKitCSharp.Dialogs
 
         public void SortByLastMessageDate()
         {
-            items.Sort(new MyComparer<DIALOG>());
+            items.Sort(new MyComparer());
             NotifyDataSetChanged();
         }
 
-        public void Sort(MyComparer<DIALOG> comparator)
+        public void Sort(MyComparer comparator)
         {
             items.Sort(comparator);
             NotifyDataSetChanged();
@@ -196,9 +196,9 @@ namespace ChatKitCSharp.Dialogs
 
     }
 
-    public class MyComparer<DIALOG> : IComparer<DIALOG> where DIALOG : IDialog<IMessage>
+    public class MyComparer : IComparer<IDialog>
     {
-        public int Compare(DIALOG x, DIALOG y)
+        public int Compare(IDialog x, IDialog y)
         {
             if (x.LastMessage.CreatedAt.After(y.LastMessage.CreatedAt))
             {
@@ -215,21 +215,21 @@ namespace ChatKitCSharp.Dialogs
         }
     }
 
-    public interface OnDialogClickListener<DIALOG> where DIALOG : IDialog<IMessage>
+    public interface OnDialogClickListener
     {
-        void OnDialogClick(DIALOG dialog);
+        void OnDialogClick(IDialog dialog);
     }
 
-    public interface OnDialogLongClickListener<DIALOG> where DIALOG : IDialog<IMessage>
+    public interface OnDialogLongClickListener
     {
-        void OnDialogLongClick(DIALOG dialog);
+        void OnDialogLongClick(IDialog dialog);
     }
 
-    public abstract class BaseDialogViewHolder<DIALOG> : ViewHolder<DIALOG> where DIALOG : IDialog<IMessage>
+    public abstract class BaseDialogViewHolder : DialogViewHolder
     {
         protected ImageLoader imageLoader;
-        protected OnDialogClickListener<DIALOG> onDialogClickListener;
-        protected OnDialogLongClickListener<DIALOG> onDialogLongClickListener;
+        protected OnDialogClickListener onDialogClickListener;
+        protected OnDialogLongClickListener onDialogLongClickListener;
         protected DateFormatter.Formatter datesFormatter;
 
         public BaseDialogViewHolder(View itemView) : base(itemView) { }
@@ -239,12 +239,12 @@ namespace ChatKitCSharp.Dialogs
             this.imageLoader = imageLoader;
         }
 
-        public void SetOnDialogClickListener(OnDialogClickListener<DIALOG> onDialogClickListener)
+        public void SetOnDialogClickListener(OnDialogClickListener onDialogClickListener)
         {
             this.onDialogClickListener = onDialogClickListener;
         }
 
-        public void SetOnDialogLongClickListener(OnDialogLongClickListener<DIALOG> onDialogLongClickListener)
+        public void SetOnDialogLongClickListener(OnDialogLongClickListener onDialogLongClickListener)
         {
             this.onDialogLongClickListener = onDialogLongClickListener;
         }
@@ -255,7 +255,7 @@ namespace ChatKitCSharp.Dialogs
         }
     }
 
-    public class DialogViewHolder<DIALOG> : BaseDialogViewHolder<DIALOG> where DIALOG : IDialog<IMessage>
+    public class CustomDialogViewHolder : BaseDialogViewHolder
     {
         private DialogListStyle _dialogStyle;
         public DialogListStyle DialogStyle
@@ -281,7 +281,7 @@ namespace ChatKitCSharp.Dialogs
         protected ViewGroup dividerContainer;
         protected View divider;
 
-        public DialogViewHolder(View itemView) : base(itemView)
+        public CustomDialogViewHolder(View itemView) : base(itemView)
         {
             root = (ViewGroup)itemView.FindViewById(Resource.Id.dialogRootLayout);
             container = (ViewGroup)itemView.FindViewById(Resource.Id.dialogContainer);
@@ -409,7 +409,7 @@ namespace ChatKitCSharp.Dialogs
             }
         }
 
-        public override void OnBind(DIALOG dialog)
+        public override void OnBind(IDialog dialog)
         {
             if (dialog.UnreadCount > 0)
             {
@@ -445,12 +445,12 @@ namespace ChatKitCSharp.Dialogs
 
             if (onDialogClickListener != null)
             {
-                container.SetOnClickListener(new MyClickListener<DIALOG>(onDialogClickListener, dialog));
+                container.SetOnClickListener(new MyClickListener(onDialogClickListener, dialog));
             }
 
             if (onDialogLongClickListener != null)
             {
-                container.SetOnLongClickListener(new MyLongClickListener<DIALOG>(onDialogLongClickListener, dialog));
+                container.SetOnLongClickListener(new MyLongClickListener(onDialogLongClickListener, dialog));
             }
         }
 
@@ -461,11 +461,11 @@ namespace ChatKitCSharp.Dialogs
 
     }
 
-    internal class MyClickListener<DIALOG> : View.IOnClickListener where DIALOG : IDialog<IMessage>
+    internal class MyClickListener : View.IOnClickListener
     {
-        protected OnDialogClickListener<DIALOG> onDialogClickListener;
-        protected DIALOG dialog;
-        public MyClickListener(OnDialogClickListener<DIALOG> listener, DIALOG dialog)
+        protected OnDialogClickListener onDialogClickListener;
+        protected IDialog dialog;
+        public MyClickListener(OnDialogClickListener listener, IDialog dialog)
         {
             this.onDialogClickListener = listener;
             this.dialog = dialog;
@@ -484,12 +484,12 @@ namespace ChatKitCSharp.Dialogs
         }
     }
 
-    internal class MyLongClickListener<DIALOG> : View.IOnLongClickListener where DIALOG : IDialog<IMessage>
+    internal class MyLongClickListener : View.IOnLongClickListener
     {
-        protected OnDialogLongClickListener<DIALOG> onDialogLongClickListener;
-        protected DIALOG dialog;
+        protected OnDialogLongClickListener onDialogLongClickListener;
+        protected IDialog dialog;
 
-        public MyLongClickListener(OnDialogLongClickListener<DIALOG> listener, DIALOG dialog)
+        public MyLongClickListener(OnDialogLongClickListener listener, IDialog dialog)
         {
             this.onDialogLongClickListener = listener;
             this.dialog = dialog;

@@ -15,7 +15,7 @@ namespace ChatKitCSharp
     [Activity(Label = "ChatKitCSharp", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
-        List<IDialog<IMessage>> dialogs = new List<IDialog<IMessage>>();       
+        List<IDialog> dialogs = new List<IDialog>();       
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -24,10 +24,10 @@ namespace ChatKitCSharp
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
             SampleData();
-            DialogsListAdapter<IDialog<IMessage>> adapter = new DialogsListAdapter<IDialog<IMessage>>(Resource.Layout.item_dialog, new MyImageLoader());
+            DialogsListAdapter adapter = new DialogsListAdapter(Resource.Layout.item_dialog, new MyImageLoader());
             adapter.SetItems(dialogs);
             adapter.datesFormatter = new MyDateFormatter();
-            FindViewById<DialogsList>(Resource.Id.dialogsList).SetAdapter<IDialog<IMessage>>(adapter);
+            FindViewById<DialogsList>(Resource.Id.dialogsList).SetAdapter(adapter);
             StartActivity(typeof(ChatActivity));
         }
 
@@ -37,7 +37,7 @@ namespace ChatKitCSharp
             {
                 DialogName = "Dialog1",
                 Id = "1",
-                LastMessage = new ChatKitCSharp.Sample.Message
+                LastMessage = new MessageData
                 {
                     CreatedAt = new Date(2017, 4, 12, 6, 43),
                     Id = "1",

@@ -12,6 +12,8 @@ using Android.Widget;
 using ChatKitCSharp.Messages;
 using ChatKitCSharp.Sample;
 using ChatKitCSharp.Commons;
+using ChatKitCSharp.Utils;
+using Java.Util;
 
 namespace ChatKitCSharp
 {
@@ -24,9 +26,10 @@ namespace ChatKitCSharp
 
             // Create your application here
             SetContentView(Resource.Layout.Chat);
-            MessagesListAdapter<Sample.Message> adapter = new MessagesListAdapter<Sample.Message>("1", new MyImageLoader());
-            adapter.addToStart(new Sample.Message { CreatedAt = new Java.Util.Date(2017, 4, 12, 16, 6), Id = "100", Text = "Sample Text!!", User = new Author { Name = "Tim" } }, false);
-            FindViewById<MessagesList>(Resource.Id.messagesList).SetAdapter<Sample.Message>(adapter);
+            MessagesListAdapter adapter = new MessagesListAdapter("1", new MyImageLoader());
+            adapter.addToStart(new MessageData { CreatedAt = new Java.Util.Date(2017, 4, 12, 16, 6), Id = "100", Text = "Sample Text!!", User = new Author { Name = "Tim" }, Type = MessageData.DataType.Date }, false);
+            adapter.DateHeadersFormatter = new MyDateFormatter();
+            FindViewById<MessagesList>(Resource.Id.messagesList).SetAdapter(adapter);
         }
 
         public class MyImageLoader : ImageLoader
@@ -34,6 +37,24 @@ namespace ChatKitCSharp
             public void LoadImage(ImageView imageView, string url)
             {
                 imageView.SetImageResource(Resource.Drawable.Icon);
+            }
+        }
+        public class MyDateFormatter : DateFormatter.Formatter
+        {
+            public string Format(Date date)
+            {
+                if (DateFormatter.IsToday(date))
+                {
+                    return DateFormatter.Format(date, DateFormatter.Template.TIME);
+                }
+                else if (DateFormatter.IsYesterday(date))
+                {
+                    return "Yesterday";
+                }
+                else
+                {
+                    return DateFormatter.Format(date, DateFormatter.Template.STRING_DAY_MONTH_YEAR_TIME);
+                }
             }
         }
     }
