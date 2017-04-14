@@ -1499,44 +1499,44 @@ namespace ChatKitCSharp
 		public partial class Color
 		{
 			
-			// aapt resource value: 0x7f090061
-			public const int abc_background_cache_hint_selector_material_dark = 2131296353;
+			// aapt resource value: 0x7f090070
+			public const int abc_background_cache_hint_selector_material_dark = 2131296368;
 			
-			// aapt resource value: 0x7f090062
-			public const int abc_background_cache_hint_selector_material_light = 2131296354;
+			// aapt resource value: 0x7f090071
+			public const int abc_background_cache_hint_selector_material_light = 2131296369;
 			
-			// aapt resource value: 0x7f090063
-			public const int abc_btn_colored_borderless_text_material = 2131296355;
+			// aapt resource value: 0x7f090072
+			public const int abc_btn_colored_borderless_text_material = 2131296370;
 			
-			// aapt resource value: 0x7f090064
-			public const int abc_btn_colored_text_material = 2131296356;
+			// aapt resource value: 0x7f090073
+			public const int abc_btn_colored_text_material = 2131296371;
 			
-			// aapt resource value: 0x7f090065
-			public const int abc_color_highlight_material = 2131296357;
+			// aapt resource value: 0x7f090074
+			public const int abc_color_highlight_material = 2131296372;
 			
-			// aapt resource value: 0x7f090066
-			public const int abc_hint_foreground_material_dark = 2131296358;
+			// aapt resource value: 0x7f090075
+			public const int abc_hint_foreground_material_dark = 2131296373;
 			
-			// aapt resource value: 0x7f090067
-			public const int abc_hint_foreground_material_light = 2131296359;
+			// aapt resource value: 0x7f090076
+			public const int abc_hint_foreground_material_light = 2131296374;
 			
 			// aapt resource value: 0x7f09000c
 			public const int abc_input_method_navigation_guard = 2131296268;
 			
-			// aapt resource value: 0x7f090068
-			public const int abc_primary_text_disable_only_material_dark = 2131296360;
+			// aapt resource value: 0x7f090077
+			public const int abc_primary_text_disable_only_material_dark = 2131296375;
 			
-			// aapt resource value: 0x7f090069
-			public const int abc_primary_text_disable_only_material_light = 2131296361;
+			// aapt resource value: 0x7f090078
+			public const int abc_primary_text_disable_only_material_light = 2131296376;
 			
-			// aapt resource value: 0x7f09006a
-			public const int abc_primary_text_material_dark = 2131296362;
+			// aapt resource value: 0x7f090079
+			public const int abc_primary_text_material_dark = 2131296377;
 			
-			// aapt resource value: 0x7f09006b
-			public const int abc_primary_text_material_light = 2131296363;
+			// aapt resource value: 0x7f09007a
+			public const int abc_primary_text_material_light = 2131296378;
 			
-			// aapt resource value: 0x7f09006c
-			public const int abc_search_url_text = 2131296364;
+			// aapt resource value: 0x7f09007b
+			public const int abc_search_url_text = 2131296379;
 			
 			// aapt resource value: 0x7f09000d
 			public const int abc_search_url_text_normal = 2131296269;
@@ -1547,32 +1547,32 @@ namespace ChatKitCSharp
 			// aapt resource value: 0x7f09000f
 			public const int abc_search_url_text_selected = 2131296271;
 			
-			// aapt resource value: 0x7f09006d
-			public const int abc_secondary_text_material_dark = 2131296365;
+			// aapt resource value: 0x7f09007c
+			public const int abc_secondary_text_material_dark = 2131296380;
 			
-			// aapt resource value: 0x7f09006e
-			public const int abc_secondary_text_material_light = 2131296366;
+			// aapt resource value: 0x7f09007d
+			public const int abc_secondary_text_material_light = 2131296381;
 			
-			// aapt resource value: 0x7f09006f
-			public const int abc_tint_btn_checkable = 2131296367;
+			// aapt resource value: 0x7f09007e
+			public const int abc_tint_btn_checkable = 2131296382;
 			
-			// aapt resource value: 0x7f090070
-			public const int abc_tint_default = 2131296368;
+			// aapt resource value: 0x7f09007f
+			public const int abc_tint_default = 2131296383;
 			
-			// aapt resource value: 0x7f090071
-			public const int abc_tint_edittext = 2131296369;
+			// aapt resource value: 0x7f090080
+			public const int abc_tint_edittext = 2131296384;
 			
-			// aapt resource value: 0x7f090072
-			public const int abc_tint_seek_thumb = 2131296370;
+			// aapt resource value: 0x7f090081
+			public const int abc_tint_seek_thumb = 2131296385;
 			
-			// aapt resource value: 0x7f090073
-			public const int abc_tint_spinner = 2131296371;
+			// aapt resource value: 0x7f090082
+			public const int abc_tint_spinner = 2131296386;
 			
-			// aapt resource value: 0x7f090074
-			public const int abc_tint_switch_thumb = 2131296372;
+			// aapt resource value: 0x7f090083
+			public const int abc_tint_switch_thumb = 2131296387;
 			
-			// aapt resource value: 0x7f090075
-			public const int abc_tint_switch_track = 2131296373;
+			// aapt resource value: 0x7f090084
+			public const int abc_tint_switch_track = 2131296388;
 			
 			// aapt resource value: 0x7f090010
 			public const int accent_material_dark = 2131296272;
@@ -1595,6 +1595,9 @@ namespace ChatKitCSharp
 			// aapt resource value: 0x7f09004d
 			public const int black = 2131296333;
 			
+			// aapt resource value: 0x7f090063
+			public const int black_10 = 2131296355;
+			
 			// aapt resource value: 0x7f09004c
 			public const int blue = 2131296332;
 			
@@ -1616,11 +1619,23 @@ namespace ChatKitCSharp
 			// aapt resource value: 0x7f09001b
 			public const int bright_foreground_material_light = 2131296283;
 			
+			// aapt resource value: 0x7f090069
+			public const int brown = 2131296361;
+			
 			// aapt resource value: 0x7f09001c
 			public const int button_material_dark = 2131296284;
 			
 			// aapt resource value: 0x7f09001d
 			public const int button_material_light = 2131296285;
+			
+			// aapt resource value: 0x7f09005b
+			public const int cornflower_blue = 2131296347;
+			
+			// aapt resource value: 0x7f09005c
+			public const int cornflower_blue_dark = 2131296348;
+			
+			// aapt resource value: 0x7f09005d
+			public const int cornflower_blue_darkest = 2131296349;
 			
 			// aapt resource value: 0x7f09005a
 			public const int cornflower_blue_light_40 = 2131296346;
@@ -1646,8 +1661,8 @@ namespace ChatKitCSharp
 			// aapt resource value: 0x7f090000
 			public const int design_bottom_navigation_shadow_color = 2131296256;
 			
-			// aapt resource value: 0x7f090076
-			public const int design_error = 2131296374;
+			// aapt resource value: 0x7f090085
+			public const int design_error = 2131296389;
 			
 			// aapt resource value: 0x7f090001
 			public const int design_fab_shadow_end_color = 2131296257;
@@ -1679,26 +1694,26 @@ namespace ChatKitCSharp
 			// aapt resource value: 0x7f09000a
 			public const int design_textinput_error_color_light = 2131296266;
 			
-			// aapt resource value: 0x7f090077
-			public const int design_tint_password_toggle = 2131296375;
+			// aapt resource value: 0x7f090086
+			public const int design_tint_password_toggle = 2131296390;
 			
-			// aapt resource value: 0x7f09005e
-			public const int dialog_date_text = 2131296350;
+			// aapt resource value: 0x7f09006d
+			public const int dialog_date_text = 2131296365;
 			
-			// aapt resource value: 0x7f09005b
-			public const int dialog_divider = 2131296347;
+			// aapt resource value: 0x7f09006a
+			public const int dialog_divider = 2131296362;
 			
-			// aapt resource value: 0x7f09005d
-			public const int dialog_message_text = 2131296349;
+			// aapt resource value: 0x7f09006c
+			public const int dialog_message_text = 2131296364;
 			
-			// aapt resource value: 0x7f09005c
-			public const int dialog_title_text = 2131296348;
+			// aapt resource value: 0x7f09006b
+			public const int dialog_title_text = 2131296363;
 			
-			// aapt resource value: 0x7f090060
-			public const int dialog_unread_bubble = 2131296352;
+			// aapt resource value: 0x7f09006f
+			public const int dialog_unread_bubble = 2131296367;
 			
-			// aapt resource value: 0x7f09005f
-			public const int dialog_unread_text = 2131296351;
+			// aapt resource value: 0x7f09006e
+			public const int dialog_unread_text = 2131296366;
 			
 			// aapt resource value: 0x7f09001e
 			public const int dim_foreground_disabled_material_dark = 2131296286;
@@ -1721,11 +1736,38 @@ namespace ChatKitCSharp
 			// aapt resource value: 0x7f09004f
 			public const int gray = 2131296335;
 			
+			// aapt resource value: 0x7f090060
+			public const int gray_dark = 2131296352;
+			
+			// aapt resource value: 0x7f090061
+			public const int gray_dark_transparent = 2131296353;
+			
+			// aapt resource value: 0x7f090062
+			public const int gray_darkest = 2131296354;
+			
+			// aapt resource value: 0x7f09005e
+			public const int gray_light = 2131296350;
+			
+			// aapt resource value: 0x7f09005f
+			public const int gray_transparent = 2131296351;
+			
+			// aapt resource value: 0x7f090066
+			public const int green = 2131296358;
+			
+			// aapt resource value: 0x7f090067
+			public const int green_dark = 2131296359;
+			
 			// aapt resource value: 0x7f090024
 			public const int highlighted_text_material_dark = 2131296292;
 			
 			// aapt resource value: 0x7f090025
 			public const int highlighted_text_material_light = 2131296293;
+			
+			// aapt resource value: 0x7f090064
+			public const int ivory = 2131296356;
+			
+			// aapt resource value: 0x7f090065
+			public const int ivory_dark = 2131296357;
 			
 			// aapt resource value: 0x7f090026
 			public const int material_blue_grey_800 = 2131296294;
@@ -1796,6 +1838,9 @@ namespace ChatKitCSharp
 			// aapt resource value: 0x7f09003b
 			public const int primary_text_disabled_material_light = 2131296315;
 			
+			// aapt resource value: 0x7f090068
+			public const int red = 2131296360;
+			
 			// aapt resource value: 0x7f09003c
 			public const int ripple_material_dark = 2131296316;
 			
@@ -1820,11 +1865,11 @@ namespace ChatKitCSharp
 			// aapt resource value: 0x7f090043
 			public const int switch_thumb_disabled_material_light = 2131296323;
 			
-			// aapt resource value: 0x7f090078
-			public const int switch_thumb_material_dark = 2131296376;
+			// aapt resource value: 0x7f090087
+			public const int switch_thumb_material_dark = 2131296391;
 			
-			// aapt resource value: 0x7f090079
-			public const int switch_thumb_material_light = 2131296377;
+			// aapt resource value: 0x7f090088
+			public const int switch_thumb_material_light = 2131296392;
 			
 			// aapt resource value: 0x7f090044
 			public const int switch_thumb_normal_material_dark = 2131296324;

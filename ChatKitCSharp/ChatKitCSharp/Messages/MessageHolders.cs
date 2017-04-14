@@ -326,7 +326,7 @@ namespace ChatKitCSharp.Messages
             switch (viewType)
             {
                 case VIEW_TYPE_DATE_HEADER:
-                return getDateHolder(parent, dateHeaderLayout, dateHeaderHolder, messagesListStyle);
+                    return getDateHolder(parent, dateHeaderLayout, dateHeaderHolder, messagesListStyle);
                 case VIEW_TYPE_TEXT_MESSAGE:
                     var tmp = getHolder(parent, incomingTextConfig, messagesListStyle);
                     //var tmp2 = tmp as ViewHolder<T>;
@@ -359,7 +359,7 @@ namespace ChatKitCSharp.Messages
 
         //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
         //ORIGINAL LINE: @SuppressWarnings("unchecked") void bind(com.stfalcon.chatkit.commons.ViewHolder holder, Object item, boolean isSelected, com.stfalcon.chatkit.commons.ImageLoader imageLoader, android.view.View.OnClickListener onMessageClickListener, android.view.View.OnLongClickListener onMessageLongClickListener, com.stfalcon.chatkit.utils.DateFormatter.Formatter dateHeadersFormatter)
-        internal virtual void bind(ViewHolder holder, object item, bool isSelected, ImageLoader imageLoader, MessagesListAdapter.MyOnClickListener onMessageClickListener, MessagesListAdapter.MyOnLongClickListener onMessageLongClickListener, DateFormatter.Formatter dateHeadersFormatter)
+        internal virtual void bind(ViewHolder holder, object item, bool isSelected, ImageLoader imageLoader, MessagesListAdapter.MyOnClickListener onMessageClickListener, View.IOnLongClickListener onMessageLongClickListener, DateFormatter.Formatter dateHeadersFormatter)
         {
             if (item is MessageData)
             {
@@ -370,8 +370,8 @@ namespace ChatKitCSharp.Messages
                     var tmpHolder = holder as BaseMessageViewHolder;
                     tmpHolder.isSelected = isSelected;
                     tmpHolder.imageLoader = imageLoader;
-                    //tmpHolder.ItemView.SetOnLongClickListener(onMessageLongClickListener);
-                    // tmpHolder.ItemView.SetOnClickListener(onMessageClickListener);
+                    tmpHolder.ItemView.SetOnLongClickListener(onMessageLongClickListener);
+                    tmpHolder.ItemView.SetOnClickListener(onMessageClickListener);
                     tmpHolder.OnBind(tmp);
                 }
                 else if (tmp.Type == MessageData.DataType.Date)
@@ -420,7 +420,9 @@ namespace ChatKitCSharp.Messages
         private ViewHolder getDateHolder(ViewGroup parent, int layout, Type holderClass, MessagesListStyle style)
         {
             View v = LayoutInflater.From(parent.Context).Inflate(layout, parent, false);
-            return new DefaultDateHeaderViewHolder(v);
+            var result = new DefaultDateHeaderViewHolder(v);
+            result.applyStyle(style);
+            return result;
         }
 
         //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
@@ -434,29 +436,28 @@ namespace ChatKitCSharp.Messages
                 if (holderClass == typeof(DefaultIncomingTextMessageViewHolder))
                 {
                     var result = new IncomingTextMessageViewHolder(v);
+                    result.applyStyle(style);
                     return result;
                 }
                 else if (holderClass == typeof(DefaultOutcomingTextMessageViewHolder))
                 {
-                    return new OutcomingTextMessageViewHolder(v);
-                }
-                else if (holderClass == typeof(DefaultDateHeaderViewHolder))
-                {
-                    //return new DefaultDateHeaderViewHolder<Date>(v);
+                    var result = new OutcomingTextMessageViewHolder(v);
+                    result.applyStyle(style);
+                    return result;
                 }
                 else if (holderClass == typeof(DefaultIncomingImageMessageViewHolder))
                 {
-                    //return new IncomingImageMessageViewHolder<IMessageContentType>(v) as ViewHolder<T>;
+                    var result = new IncomingImageMessageViewHolder(v);
+                    result.applyStyle(style);
+                    return result;
+                }
+                else if (holderClass == typeof(DefaultOutcomingImageMessageViewHolder))
+                {
+                    var result = new OutcomingImageMessageViewHolder(v);
+                    result.applyStyle(style);
+                    return result;
                 }
                 return null;
-                //Constructor<HOLDER> constructor = holderClass.getDeclaredConstructor(typeof(View));
-                //constructor.Accessible = true;
-                //HOLDER holder = constructor.newInstance(v);
-                //if (holder is DefaultMessageViewHolder && style != null)
-                //{
-                //    ((DefaultMessageViewHolder)holder).applyStyle(style);
-                //}
-                //return holder;
             }
             catch (Exception)
             {
@@ -629,7 +630,7 @@ namespace ChatKitCSharp.Messages
                     text.SetTypeface(text.Typeface, TypefaceStyle.Normal);
                     text.AutoLinkMask = Android.Text.Util.MatchOptions.All;
                     text.SetLinkTextColor(new Color(style.getIncomingTextLinkColor()));
-                    configureLinksBehavior(text);
+                    //configureLinksBehavior(text);
                 }
             }
         }
@@ -679,7 +680,7 @@ namespace ChatKitCSharp.Messages
                     text.SetTypeface(text.Typeface, TypefaceStyle.Normal);
                     text.AutoLinkMask = Android.Text.Util.MatchOptions.All;
                     text.SetLinkTextColor(new Color(style.getOutcomingTextLinkColor()));
-                    configureLinksBehavior(text);
+                    //configureLinksBehavior(text);
                 }
             }
         }

@@ -170,7 +170,7 @@ namespace ChatKitCSharp.Messages
 
                 IntPtr IntPtrtextViewClass = JNIEnv.FindClass(typeof(TextView));
                 IntPtr mCursorDrawableResProperty = JNIEnv.GetFieldID(IntPtrtextViewClass, "mCursorDrawableRes", "I");
-                JNIEnv.SetField(messageInput.Handle, mCursorDrawableResProperty, drawable.JniIdentityHashCode); // replace 0 with a Resource.Drawable.my_cursor
+                JNIEnv.SetField(messageInput.Handle, mCursorDrawableResProperty, Resources.GetIdentifier(nameof(drawable), null, null)); // replace 0 with a Resource.Drawable.my_cursor
             }
             catch (Java.Lang.Exception)
             {

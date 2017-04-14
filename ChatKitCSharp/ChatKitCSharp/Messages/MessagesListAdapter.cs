@@ -34,7 +34,8 @@ namespace ChatKitCSharp.Messages
         private OnMessageLongClickListener onMessageLongClickListener;
         private ImageLoader imageLoader;
         private RecyclerView.LayoutManager layoutManager;
-        private MessagesListStyle messagesListStyle;
+        public MessagesListStyle Style { get; set; }
+        
         private DateFormatter.Formatter dateHeadersFormatter;
 
         /// <summary>
@@ -69,7 +70,7 @@ namespace ChatKitCSharp.Messages
 
         public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
         {
-            var tmp = holders.getHolder(parent, viewType, messagesListStyle);
+            var tmp = holders.getHolder(parent, viewType, Style);
             return tmp;
         }
 
@@ -125,7 +126,8 @@ namespace ChatKitCSharp.Messages
             bool isNewMessageToday = !isPreviousSameDate(0, message.CreatedAt);
             if (isNewMessageToday)
             {
-                items.Insert(0, new Wrapper(this, message));
+                var dateMessage = new MessageData { CreatedAt = message.CreatedAt, Type = MessageData.DataType.Date };
+                items.Insert(0, new Wrapper(this, dateMessage));
             }
             Wrapper element = new Wrapper(this, message);
             items.Insert(0, element);
@@ -145,7 +147,7 @@ namespace ChatKitCSharp.Messages
         {
             if (reverse)
             {
-                messages.Reverse();
+                messages = messages.Reverse().ToList();
             }
 
             if (items.Count > 0)
@@ -454,12 +456,14 @@ namespace ChatKitCSharp.Messages
                     MessageData nextMessage = messages[i + 1];
                     if (!DateFormatter.IsSameDay(message.CreatedAt, nextMessage.CreatedAt))
                     {
-                        this.items.Add(new Wrapper(this, message));
+                        var dateMessage = new MessageData { CreatedAt = message.CreatedAt, Type = MessageData.DataType.Date };
+                        this.items.Add(new Wrapper(this, dateMessage));
                     }
                 }
                 else
                 {
-                    this.items.Add(new Wrapper(this, message));
+                    var dateMessage = new MessageData { CreatedAt = message.CreatedAt, Type = MessageData.DataType.Date };
+                    this.items.Add(new Wrapper(this, dateMessage));
                 }
             }
         }
@@ -474,7 +478,7 @@ namespace ChatKitCSharp.Messages
                 if (wrapper.item is IMessage)
                 {
                     MessageData message = (MessageData)wrapper.item;
-                    if (message.Id.Equals(id))
+                    if (message.Id != null && message.Id.Equals(id))
                     {
                         return i;
                     }
@@ -567,7 +571,7 @@ namespace ChatKitCSharp.Messages
             return new MyOnClickListener(this, wrapper);
         }
 
-        public class MyOnClickListener : View.IOnClickListener
+        public class MyOnClickListener : Java.Lang.Object, View.IOnClickListener
         {
             private readonly MessagesListAdapter outerInstance;
 
@@ -577,12 +581,6 @@ namespace ChatKitCSharp.Messages
             {
                 this.outerInstance = outerInstance;
                 this.wrapper = wrapper;
-            }
-
-            public IntPtr Handle => IntPtr.Zero;
-
-            public void Dispose()
-            {
             }
 
             public void OnClick(View view)
@@ -617,7 +615,7 @@ namespace ChatKitCSharp.Messages
             return new MyOnLongClickListener(this, wrapper);
         }
 
-        public class MyOnLongClickListener : View.IOnLongClickListener
+        public class MyOnLongClickListener : Java.Lang.Object, View.IOnLongClickListener
         {
             private readonly MessagesListAdapter outerInstance;
 
@@ -627,12 +625,6 @@ namespace ChatKitCSharp.Messages
             {
                 this.outerInstance = outerInstance;
                 this.wrapper = wrapper;
-            }
-
-            public IntPtr Handle => IntPtr.Zero;
-
-            public void Dispose()
-            {
             }
 
             public bool OnLongClick(View view)
@@ -683,14 +675,6 @@ namespace ChatKitCSharp.Messages
             set
             {
                 this.layoutManager = value;
-            }
-        }
-
-        internal virtual MessagesListStyle Style
-        {
-            set
-            {
-                this.messagesListStyle = value;
             }
         }
 
@@ -780,6 +764,6 @@ namespace ChatKitCSharp.Messages
             /// <param name="message"> The object that should be formatted. </param>
             /// <returns> Formatted text. </returns>
             string format(MessageData message);
-        }       
+        }
     }
 }

@@ -33,10 +33,10 @@ namespace ChatKitCSharp.Messages
             ParseStyle(context, attrs);
         }
 
-        public override void SetAdapter(Adapter adapter)
-        {
-            base.SetAdapter(adapter);
-        }
+        //public override void SetAdapter(Adapter adapter)
+        //{
+        //    base.SetAdapter(adapter);
+        //}
 
         public void SetAdapter(MessagesListAdapter adapter)
         {
@@ -50,7 +50,7 @@ namespace ChatKitCSharp.Messages
             adapter.LayoutManager = layoutManager;
             adapter.Style = messagesListStyle;
 
-            AddOnScrollListener(new RecyclerScrollMoreListener(layoutManager, adapter));            
+            AddOnScrollListener(new RecyclerScrollMoreListener(layoutManager, adapter));
 
             base.SetAdapter(adapter);
         }

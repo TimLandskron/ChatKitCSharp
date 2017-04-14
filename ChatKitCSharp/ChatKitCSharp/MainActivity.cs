@@ -9,13 +9,35 @@ using ChatKitCSharp.Commons;
 using System;
 using Java.Util;
 using ChatKitCSharp.Utils;
+using Android.Content;
+using System.Linq;
 
 namespace ChatKitCSharp
 {
     [Activity(Label = "ChatKitCSharp", MainLauncher = true, Icon = "@drawable/icon")]
-    public class MainActivity : Activity
+    public class MainActivity : Activity, OnDialogClickListener, OnDialogLongClickListener
     {
-        List<IDialog> dialogs = new List<IDialog>();       
+        List<IDialog> dialogs = new List<IDialog>();
+        private DialogsListAdapter adapter;
+
+        public void OnDialogClick(IDialog dialog)
+        {
+            Intent intent = new Intent(this, typeof(ChatActivity));
+            intent.PutExtra("sender_id", dialog.Users.First().Id);
+            intent.PutExtra("my_id", "2");
+            StartActivity(intent);
+        }
+
+        public void OnDialogLongClick(IDialog dialog)
+        {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.SetMessage("Do you really want to delete this Chat?");
+            builder.SetPositiveButton("Yes", (s, e) => {
+                adapter.DeleteById(dialog.Id);
+            });
+            builder.SetNegativeButton("No", (s, e) => { });
+            builder.Show();
+        }
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -24,11 +46,12 @@ namespace ChatKitCSharp
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
             SampleData();
-            DialogsListAdapter adapter = new DialogsListAdapter(Resource.Layout.item_dialog, new MyImageLoader());
+            adapter = new DialogsListAdapter(Resource.Layout.item_dialog, new MyImageLoader());
             adapter.SetItems(dialogs);
             adapter.datesFormatter = new MyDateFormatter();
+            adapter.onDialogClickListener = this;
+            adapter.onDialogLongClickListener = this;
             FindViewById<DialogsList>(Resource.Id.dialogsList).SetAdapter(adapter);
-            StartActivity(typeof(ChatActivity));
         }
 
         private void SampleData()

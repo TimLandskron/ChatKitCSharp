@@ -461,7 +461,7 @@ namespace ChatKitCSharp.Dialogs
 
     }
 
-    internal class MyClickListener : View.IOnClickListener
+    internal class MyClickListener : Java.Lang.Object, View.IOnClickListener
     {
         protected OnDialogClickListener onDialogClickListener;
         protected IDialog dialog;
@@ -471,20 +471,13 @@ namespace ChatKitCSharp.Dialogs
             this.dialog = dialog;
         }
 
-
-        public IntPtr Handle => IntPtr.Zero;
-
-        public void Dispose()
-        {
-        }
-
         public void OnClick(View v)
         {
             onDialogClickListener.OnDialogClick(dialog);
         }
     }
 
-    internal class MyLongClickListener : View.IOnLongClickListener
+    internal class MyLongClickListener : Java.Lang.Object, View.IOnLongClickListener
     {
         protected OnDialogLongClickListener onDialogLongClickListener;
         protected IDialog dialog;
@@ -493,11 +486,6 @@ namespace ChatKitCSharp.Dialogs
         {
             this.onDialogLongClickListener = listener;
             this.dialog = dialog;
-        }
-        public IntPtr Handle => IntPtr.Zero;
-
-        public void Dispose()
-        {
         }
 
         public bool OnLongClick(View v)
