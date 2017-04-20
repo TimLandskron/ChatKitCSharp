@@ -28,7 +28,7 @@ namespace ChatKitLibrary.Dialogs
         public ImageLoader imageLoader { get; set; }
         public OnDialogClickListener onDialogClickListener { get; set; }
         public OnDialogLongClickListener onDialogLongClickListener { get; set; }
-        public  DialogListStyle DialogStyle { get; set; }
+        public DialogListStyle DialogStyle { get; set; }
         public DateFormatter.Formatter datesFormatter { get; set; }
 
         public DialogsListAdapter(ImageLoader imageLoader)
@@ -201,11 +201,11 @@ namespace ChatKitLibrary.Dialogs
     {
         public int Compare(IDialog x, IDialog y)
         {
-            if (x.LastMessage.CreatedAt.After(y.LastMessage.CreatedAt))
+            if (x.LastMessage.CreatedAt > y.LastMessage.CreatedAt)
             {
                 return -1;
             }
-            else if (x.LastMessage.CreatedAt.Before(y.LastMessage.CreatedAt))
+            else if (x.LastMessage.CreatedAt < y.LastMessage.CreatedAt)
             {
                 return 1;
             }
@@ -425,20 +425,26 @@ namespace ChatKitLibrary.Dialogs
             tvName.Text = dialog.DialogName;
 
             // Set date
-            string formattedDate = null;
-            Date lastMessageDate = dialog.LastMessage.CreatedAt;
-            if (datesFormatter != null) formattedDate = datesFormatter.Format(lastMessageDate);
-            tvDate.Text = formattedDate == null ? GetDateString(lastMessageDate) : formattedDate;
+            if (dialog.LastMessage != null)
+            {
+                string formattedDate = null;
+                DateTime lastMessageDate = dialog.LastMessage.CreatedAt;
+                if (datesFormatter != null) formattedDate = datesFormatter.Format(lastMessageDate);
+                tvDate.Text = formattedDate == null ? GetDateString(lastMessageDate) : formattedDate;
+            }
 
             // Set Dialog avatar
             if (imageLoader != null) imageLoader.LoadImage(ivAvatar, dialog.DialogPhoto);
 
             // Set Last message user avatar
-            if (imageLoader != null) imageLoader.LoadImage(ivLastMessageUser, dialog.LastMessage.User.Avatar);
-            ivLastMessageUser.Visibility = DialogStyle.DialogMessageAvatarEnabled && dialog.Users.Count > 1 ? ViewStates.Visible : ViewStates.Gone;
-
+            //if (imageLoader != null) imageLoader.LoadImage(ivLastMessageUser, dialog.LastMessage.User.Avatar);
+            //ivLastMessageUser.Visibility = DialogStyle.DialogMessageAvatarEnabled && dialog.Users.Count > 1 ? ViewStates.Visible : ViewStates.Gone;
+            ivLastMessageUser.Visibility = ViewStates.Gone;
             // Set Last message text
-            tvLastMessage.Text = dialog.LastMessage.Text;
+            if (dialog.LastMessage != null)
+            {
+                tvLastMessage.Text = dialog.LastMessage.Text;
+            }
 
             // Set unread message count bubble
             tvBubble.Text = dialog.UnreadCount.ToString();
@@ -455,7 +461,7 @@ namespace ChatKitLibrary.Dialogs
             }
         }
 
-        protected string GetDateString(Date date)
+        protected string GetDateString(DateTime date)
         {
             return DateFormatter.Format(date, DateFormatter.Template.STRING_DAY_MONTH_YEAR_TIME);
         }

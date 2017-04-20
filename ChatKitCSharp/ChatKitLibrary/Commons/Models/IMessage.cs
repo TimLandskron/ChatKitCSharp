@@ -8,6 +8,6 @@ namespace ChatKitLibrary.Commons.Models
         string Id { get; }
         string Text { get; }
         IUser User { get; }
-        Date CreatedAt { get; }
+        DateTime CreatedAt { get; }
     }
 }

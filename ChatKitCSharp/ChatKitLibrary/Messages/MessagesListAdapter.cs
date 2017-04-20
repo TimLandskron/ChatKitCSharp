@@ -35,7 +35,7 @@ namespace ChatKitLibrary.Messages
         private ImageLoader imageLoader;
         private RecyclerView.LayoutManager layoutManager;
         public MessagesListStyle Style { get; set; }
-        
+
         private DateFormatter.Formatter dateHeadersFormatter;
 
         /// <summary>
@@ -153,7 +153,7 @@ namespace ChatKitLibrary.Messages
             if (items.Count > 0)
             {
                 int lastItemPosition = items.Count - 1;
-                Date lastItem = items[lastItemPosition].item.CreatedAt;
+                DateTime lastItem = items[lastItemPosition].item.CreatedAt;
                 if (DateFormatter.IsSameDay(messages[0].CreatedAt, lastItem))
                 {
                     items.RemoveAt(lastItemPosition);
@@ -208,9 +208,14 @@ namespace ChatKitLibrary.Messages
         {
             foreach (MessageData message in messages)
             {
-                int index = getMessagePositionById(message.Id);
-                items.RemoveAt(index);
-                NotifyItemRemoved(index);
+                if (message.Type == MessageData.DataType.Message)
+                {
+                    var wrapper = items.First(w => w.item.Id == message.Id);
+                    var index = items.IndexOf(wrapper);
+                    //int index = getMessagePositionById(message.Id);
+                    items.Remove(wrapper);
+                    NotifyItemRemoved(index);
+                }
             }
             recountDateHeaders();
         }
@@ -416,32 +421,14 @@ namespace ChatKitLibrary.Messages
 		* */
         private void recountDateHeaders()
         {
-            IList<int?> indicesToDelete = new List<int?>();
-
             for (int i = 0; i < items.Count; i++)
             {
                 Wrapper wrapper = items[i];
                 if (wrapper.item.Type == MessageData.DataType.Date)
                 {
-                    if (i == 0)
-                    {
-                        indicesToDelete.Add(i);
-                    }
-                    else
-                    {
-                        if (items[i - 1].item.Type == MessageData.DataType.Date)
-                        {
-                            indicesToDelete.Add(i);
-                        }
-                    }
+                    items.Remove(wrapper);
+                    NotifyItemRemoved(i);
                 }
-            }
-
-            indicesToDelete.Reverse();
-            foreach (int i in indicesToDelete)
-            {
-                items.RemoveAt(i);
-                NotifyItemRemoved(i);
             }
         }
 
@@ -475,7 +462,7 @@ namespace ChatKitLibrary.Messages
             for (int i = 0; i < items.Count; i++)
             {
                 Wrapper wrapper = items[i];
-                if (wrapper.item is IMessage)
+                if (wrapper.item is IMessage && wrapper.item.Type == MessageData.DataType.Message)
                 {
                     MessageData message = (MessageData)wrapper.item;
                     if (message.Id != null && message.Id.Equals(id))
@@ -489,7 +476,7 @@ namespace ChatKitLibrary.Messages
 
         //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
         //ORIGINAL LINE: @SuppressWarnings("unchecked") private boolean isPreviousSameDate(int position, java.util.Date dateToCompare)
-        private bool isPreviousSameDate(int position, Date dateToCompare)
+        private bool isPreviousSameDate(int position, DateTime dateToCompare)
         {
             if (items.Count <= position)
             {
@@ -497,7 +484,7 @@ namespace ChatKitLibrary.Messages
             }
             if (items[position].item is IMessage)
             {
-                Date previousPositionDate = ((MessageData)items[position].item).CreatedAt;
+                DateTime previousPositionDate = ((MessageData)items[position].item).CreatedAt;
                 return DateFormatter.IsSameDay(dateToCompare, previousPositionDate);
             }
             else

@@ -748,7 +748,6 @@ namespace ChatKitLibrary.Messages
         {
 
             protected internal TextView text;
-            protected internal string dateFormat;
             protected internal DateFormatter.Formatter dateHeadersFormatter;
 
             public DefaultDateHeaderViewHolder(View itemView) : base(itemView)
@@ -765,7 +764,7 @@ namespace ChatKitLibrary.Messages
                     {
                         formattedDate = dateHeadersFormatter.Format(date.CreatedAt);
                     }
-                    text.Text = string.ReferenceEquals(formattedDate, null) ? DateFormatter.Format(date.CreatedAt, dateFormat) : formattedDate;
+                    text.Text = string.ReferenceEquals(formattedDate, null) ? DateFormatter.Format(date.CreatedAt, DateFormatter.Template.TIME) : formattedDate;
                 }
             }
 
@@ -778,8 +777,6 @@ namespace ChatKitLibrary.Messages
                     text.SetTypeface(text.Typeface, TypefaceStyle.Normal);
                     text.SetPadding(style.getDateHeaderPadding(), style.getDateHeaderPadding(), style.getDateHeaderPadding(), style.getDateHeaderPadding());
                 }
-                dateFormat = style.getDateHeaderFormat();
-                dateFormat = string.ReferenceEquals(dateFormat, null) ? DateFormatter.GetFormatString(DateFormatter.Template.TIME) : dateFormat;
             }
         }
 

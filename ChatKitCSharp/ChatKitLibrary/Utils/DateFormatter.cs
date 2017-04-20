@@ -30,114 +30,63 @@ namespace ChatKitLibrary.Utils
             }
         }
 
-        public static string Format(Date date, Template template)
+        public static string Format(DateTime date, Template template)
         {
             switch (template)
             {
                 case Template.STRING_DAY_MONTH:
-                    return Format(date, "d MMMM");
+                    return $"{date.Day.ToString("dd")}.{date.Month.ToString("MM")}";
                 case Template.STRING_DAY_MONTH_YEAR:
-                    return Format(date, "d MMMM yyyy");
+                    return date.ToShortDateString();
                 case Template.TIME:
-                    return Format(date, "HH:mm");
+                    return date.ToShortTimeString();
                 case Template.STRING_DAY_MONTH_YEAR_TIME:
-                    return Format(date, "d MMMM yyyy - HH:mm");
+                    return date.ToShortDateString() + date.ToShortTimeString();
                 default:
-                    return Format(date, "");
+                    return "";
             }
         }
 
-        public static string Format(Date date, string format)
-        {
-            if (date == null) return "";
-            return new SimpleDateFormat(format, Locale.Default).Format(date);
-        }
-
-        public static bool IsSameDay(Date date1, Date date2)
+        public static bool IsSameDay(DateTime date1, DateTime date2)
         {
             if (date1 == null || date2 == null)
             {
                 throw new Exception("Dates must not be null");
             }
-            Calendar cal1 = Calendar.Instance;
-            cal1.Time = date1;
-            Calendar cal2 = Calendar.Instance;
-            cal2.Time = date2;
-
-            return IsSameDay(cal1, cal2);
+            return (date1.Day == date2.Day) &&
+                (date1.Month == date2.Month) &&
+                (date1.Year == date2.Year);
         }
 
-        public static bool IsSameDay(Calendar cal1, Calendar cal2)
-        {
-            if (cal1 == null || cal2 == null)
-            {
-                throw new Exception("Dates must not be null");
-            }
-            return (cal1.Get(CalendarField.Era) == cal2.Get(CalendarField.Era) &&
-                    cal1.Get(CalendarField.Year) == cal2.Get(CalendarField.Year) &&
-                    cal1.Get(CalendarField.DayOfYear) == cal2.Get(CalendarField.DayOfYear));
-        }
-
-        public static bool IsSameYear(Date date1, Date date2)
+        public static bool IsSameYear(DateTime date1, DateTime date2)
         {
             if (date1 == null || date2 == null)
             {
                 throw new Exception("Dates must not be null");
             }
-            Calendar cal1 = Calendar.Instance;
-            cal1.Time = date1;
-            Calendar cal2 = Calendar.Instance;
-            cal2.Time = date2;
-            return IsSameYear(cal1, cal2);
+            
+            return (date1.Year == date2.Year);
         }
 
-        public static bool IsSameYear(Calendar cal1, Calendar cal2)
+        public static bool IsToday(DateTime date)
         {
-            if (cal1 == null || cal2 == null)
-            {
-                throw new Exception("Dates must not be null");
-            }
-            return (cal1.Get(CalendarField.Era) == cal2.Get(CalendarField.Era) &&
-                   cal1.Get(CalendarField.Year) == cal2.Get(CalendarField.Year));
+            return IsSameDay(date, DateTime.Now);
         }
 
-        public static bool IsToday(Date date)
+        public static bool IsYesterday(DateTime date)
         {
-            return IsSameDay(date, Calendar.Instance.Time);
+            var yesterday = DateTime.Now.AddDays(-1);
+            return IsSameDay(date, yesterday);
         }
 
-        public static bool IsToday(Calendar cal)
+        public static bool IsCurrentYear(DateTime date)
         {
-            return IsSameDay(cal, Calendar.Instance);
-        }
-
-        public static bool IsYesterday(Calendar cal)
-        {
-            Calendar yesterday = Calendar.Instance;
-            yesterday.Add(CalendarField.DayOfMonth, -1);
-            return IsSameDay(cal, yesterday);
-        }
-
-        public static bool IsYesterday(Date date)
-        {
-            Calendar yesterday = Calendar.Instance;
-            yesterday.Add(CalendarField.DayOfMonth, -1);
-            return IsSameDay(date, yesterday.Time);
-        }
-
-        public static bool IsCurrentYear(Date date)
-        {
-            return IsSameYear(date, Calendar.Instance.Time);
-        }
-
-        public static bool IsCurrentYear(Calendar cal)
-        {
-            return IsSameYear(cal, Calendar.Instance);
+            return IsSameYear(date, DateTime.Now);
         }
 
         public interface Formatter
         {
-            string Format(Date date);
+            string Format(DateTime date);
         }
 
         public enum Template

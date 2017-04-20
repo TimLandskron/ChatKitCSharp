@@ -23,7 +23,7 @@ namespace ChatKitLibrary.Commons
 
         public IUser User { get; set; }
 
-        public Date CreatedAt { get; set; }
+        public DateTime CreatedAt { get; set; }
         public string ImageUrl { get; set; }
 
         public enum DataType
